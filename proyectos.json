@@ -1,0 +1,73 @@
+{
+    "Reconocimiento Facial con Python": {
+      "repositorio": "https://github.com/hidel21/Reconocimiento-Facial-con-Python",
+      "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560211/portafolio/Reconocimiento_Facial_ihr1x4.jpg",
+      "descripcion": "Este repositorio contiene dos scripts de Python que demuestran cómo detectar y reconocer caras en videos utilizando OpenCV, dlib y numpy.",
+      "stack": ["Python", "OpenCV", "dlib", "numpy"]
+    },
+    "Estadisticas MLB": {
+      "repositorio": "https://github.com/hidel21/Estadisticas-MLB",
+      "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/MLB_estadisticas_Jose_Altuve_fyjjja.jpg",
+      "descripcion": "Bienvenidos a este repositorio donde nos sumergimos en el mundo del béisbol con dos estrellas de las Grandes Ligas: José Altuve y Luis Arraez.",
+      "stack": ["Python", "Pandas", "Numpy", "Matplotlib", "lxml"]
+    },
+        "Django Practice": {
+          "repositorio": "https://github.com/hidel21/Django-practice",
+          "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/Django_Practice_qtsped.jpg",
+          "descripcion": "Este proyecto es un ejemplo de una aplicación web simple que permite a los usuarios crear, leer, actualizar y eliminar publicaciones. Está desarrollado con Django, un framework web Python.",
+          "stack": ["Python", "Django", "HTML", "CSS", "JavaScript"]
+        },
+        "WAC Matriz SEO": {
+          "repositorio": "https://github.com/hidel21/WAC-matriz-seo",
+          "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/Matriz_SEO_Streamlit_zotfw9.jpg",
+          "descripcion": "Esta herramienta te permitirá analizar una lista de URLs y obtener métricas SEO esenciales directamente en tu navegador.",
+          "stack": ["Python", "SEO", "Pandas", "BeautifullSoup", "Pandas", "Analytics"]
+        },
+        "Sea Level Predictor": {
+          "repositorio": "https://github.com/hidel21/boilerplate-sea-level-predictor",
+          "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560211/portafolio/Visualizador_de_Cambios_del_nivel_del_mar_azddli.jpg",
+          "descripcion": "Análisis y predicción del nivel del mar utilizando datos históricos.",
+          "stack": ["Python", "Pandas", "Matplotlib"]
+        },
+        "View Time Series Visualizer": {
+          "repositorio": "https://github.com/hidel21/boilerplate-page-view-time-series-visualizer",
+          "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560211/portafolio/Visualizacion_de_Series_Temporales_para_FreeCodeCamp_gyp300.jpg",
+          "descripcion": "Visualizador de series de tiempo para el análisis de vistas de página.",
+          "stack": ["Python", "Pandas", "Matplotlib"]
+        },
+      
+    "Medical Data Visualizer": {
+        "repositorio": "https://github.com/hidel21/boilerplate-medical-data-visualizer",
+        "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560211/portafolio/Visualizador_de_Datos_Medicos_g4tcbs.jpg",
+        "descripcion": "Este proyecto tiene como objetivo visualizar datos relacionados con características médicas, tales como presión arterial, colesterol y hábitos de vida (como fumar o beber), y analizar su relación con la presencia o ausencia de enfermedades cardiovasculares.",
+        "stack": ["Python", "Pandas", "Matplotlib"]
+     },
+     "Demographic Data Analyzer": {
+        "repositorio": "https://github.com/hidel21/boilerplate-demographic-data-analyzer",
+        "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/Analisis_demografico_de_Datos_wrjvdb.jpg",
+        "descripcion": "Este proyecto realiza un análisis demográfico de un conjunto de datos, proporcionando métricas clave como el recuento de razas, el promedio de edad de los hombres, el porcentaje de personas con títulos de licenciatura, entre otros.",
+        "stack": ["Python", "Pandas", "Matplotlib"]
+     },
+    "Generador de codigo QR": {
+        "repositorio": "https://github.com/hidel21/generador-de-codigo-qr",
+        "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/Generador_de_Codigo_QR_si04wi.jpg",
+        "descripcion": "Esta aplicación PHP permite a los usuarios generar códigos QR basados en la entrada de datos proporcionada por el usuario, utilizando la biblioteca phpqrcode 📖 y una API personalizada llamada RapidPrestAPI 🌐.",
+        "stack": ["Python", "PHP", "API", "QR Generate"]
+     },
+    "Rellenador de PDF": {
+        "repositorio": "https://github.com/hidel21/Rellenador-de-PDF",
+        "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/Rellenador_de_PDF_rtiqwb.jpg",
+        "descripcion": "Esta herramienta fue desarrollada en Python y permite automatizar el proceso de completar formularios PDF utilizando datos de una base de datos MySQL.",
+        "stack": ["Python", "MYSQL", "PyPDF2", "Streamlit"]
+     },
+      "Backlink Tracker": {
+        "repositorio": "https://github.com/hidel21/backlink-tracker",
+        "imagen": "https://res.cloudinary.com/dmckqwu0p/image/upload/v1699560210/portafolio/Backlink_Tracker_dw3ddu.jpg",
+        "descripcion": "Este es un script de Python que utiliza la biblioteca Streamlit para crear una aplicación web que permite realizar un seguimiento de los backlinks de un sitio web utilizando la API de Google Search Console.",
+        "stack": ["Python", "Pandas", "Matplotlib", "Streamlit", "Pickle", "BeautifulSoup"]
+     }
+
+
+    
+  }
+  
