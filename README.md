@@ -15,6 +15,13 @@ Sitio estático sin dependencias ni paso de build, servido por GitHub Pages:
 - **JavaScript vanilla** para la interactividad: paleta de comandos (`Ctrl/⌘ + K`), filtros de proyectos,
   pestañas accesibles, ventana de código con resaltado de sintaxis y actividad de GitHub en vivo.
 
+## SEO
+
+- Páginas de servicio con contenido propio: `/desarrollador-odoo/`, `/facturacion-electronica-odoo/` y `/migracion-odoo/`.
+- Datos estructurados (JSON-LD): `ProfilePage` + `Person` + `FAQPage` en la portada; `Service` + `BreadcrumbList` + `FAQPage` en cada servicio.
+- `sitemap.xml`, `robots.txt` (permite buscadores y asistentes de IA) y `llms.txt` (resumen para modelos de lenguaje).
+- Al editar contenido, actualiza `lastmod` en `sitemap.xml` y la fecha «Actualizado el…» de la página.
+
 ## Estructura
 
 ```

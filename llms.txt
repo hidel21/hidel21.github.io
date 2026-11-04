@@ -1,0 +1,21 @@
+# Hideldev — Hidelberg Martínez Espitia
+
+> Hidelberg Martínez Espitia (Hideldev) es un desarrollador senior y especialista en Odoo ERP (v14–v19) radicado en Aragua, Venezuela, con más de 6 años de experiencia. Trabaja de forma remota como consultor independiente: módulos Odoo a medida, migraciones de versión, integraciones API, IA aplicada y facturación electrónica para Venezuela (SENIAT), Colombia (DIAN) y México (CFDI 4.0). Español nativo, inglés B2.
+
+Datos clave:
+- Responsable del ERP de un grupo de 7 compañías en 5 países sobre Odoo 18 Enterprise (MyIntelli, 2026): comisiones multimoneda, nómina electrónica DIAN y facturación electrónica CO/VE/MX.
+- Migró los módulos de Nómina, Contabilidad y Presupuesto de Odoo 14 a Odoo 18 (Binaural, 2025).
+- Localización venezolana de contabilidad, nómina y facturación electrónica; módulos en Odoo 18 y 19 (INGEINT, 2025–2026).
+- Automatización de retenciones fiscales: −40% de tiempo de procesamiento mensual.
+- Contacto: WhatsApp +58 422-403 7878 · hidelmartinez21@gmail.com
+
+## Servicios
+- [Desarrollador Odoo freelance](https://hidel21.github.io/desarrollador-odoo/): módulos a medida, reportes SQL, integraciones y automatización en Odoo v14–v19.
+- [Facturación electrónica en Odoo](https://hidel21.github.io/facturacion-electronica-odoo/): localización fiscal para Venezuela, Colombia y México, nómina electrónica.
+- [Migración de Odoo](https://hidel21.github.io/migracion-odoo/): actualización de versiones antiguas a recientes sin detener la operación.
+
+## Perfil
+- [Portafolio, experiencia y proyectos](https://hidel21.github.io/)
+- [CV en PDF](https://hidel21.github.io/assets/cv/Hidelberg-Martinez-CV.pdf)
+- [LinkedIn](https://www.linkedin.com/in/hidelberg-martinez-espitia/)
+- [GitHub](https://github.com/hidel21)

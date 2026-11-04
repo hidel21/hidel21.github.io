@@ -96,7 +96,8 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     navLinks.forEach(function (a) {
-      var target = document.querySelector(a.getAttribute('href'));
+      var href = a.getAttribute('href');
+      var target = href.charAt(0) === '#' ? document.querySelector(href) : null;
       if (target) sectionObs.observe(target);
     });
   }
@@ -379,7 +380,7 @@
       c.classList.toggle('is-active', on);
       c.setAttribute('aria-pressed', String(on));
     });
-    filterStatus.textContent = shown + (shown === 1 ? ' proyecto' : ' proyectos') + ' mostrados';
+    if (filterStatus) filterStatus.textContent = shown + (shown === 1 ? ' proyecto' : ' proyectos') + ' mostrados';
   }
   projects.forEach(function (p) { if (p.classList.contains('featured')) p.setAttribute('data-featured', ''); });
   chips.forEach(function (c) {
@@ -582,7 +583,15 @@
   var palette = $('#palette');
   var pInput = $('#palette-input');
   var pList = $('#palette-list');
-  var go = function (hash) { return function () { var el = document.querySelector(hash); if (el) el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' }); }; };
+  // En las páginas de servicio las secciones viven en la portada: se navega a /#seccion
+  var go = function (hash) {
+    return function () {
+      var el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+      else window.location.href = '/' + hash;
+    };
+  };
+  var page = function (url) { return function () { window.location.href = url; }; };
   var open = function (url) { return function () { window.open(url, '_blank', 'noopener'); }; };
   var COMMANDS = [
     { label: 'Inicio', icon: 'i-arrow', hint: 'Sección', run: go('#top') },
@@ -590,7 +599,11 @@
     { label: 'Servicios', icon: 'i-arrow', hint: 'Sección', run: go('#servicios') },
     { label: 'Experiencia', icon: 'i-arrow', hint: 'Sección', run: go('#experiencia') },
     { label: 'Proyectos', icon: 'i-arrow', hint: 'Sección', run: go('#proyectos') },
-    { label: 'Proyectos de Odoo & ERP', icon: 'i-erp', hint: 'Filtro', run: function () { applyFilter('odoo'); go('#proyectos')(); } },
+    { label: 'Proyectos de Odoo & ERP', icon: 'i-erp', hint: 'Filtro', run: function () { if (chips.length) { applyFilter('odoo'); go('#proyectos')(); } else { window.location.href = '/#proyectos'; } } },
+    { label: 'Servicio: Desarrollador Odoo freelance', icon: 'i-erp', hint: 'Página', run: page('/desarrollador-odoo/') },
+    { label: 'Servicio: Facturación electrónica en Odoo', icon: 'i-receipt', hint: 'Página', run: page('/facturacion-electronica-odoo/') },
+    { label: 'Servicio: Migración de Odoo', icon: 'i-layers', hint: 'Página', run: page('/migracion-odoo/') },
+    { label: 'Preguntas frecuentes', icon: 'i-search', hint: 'Sección', run: go('#preguntas') },
     { label: 'Stack y certificaciones', icon: 'i-arrow', hint: 'Sección', run: go('#stack') },
     { label: 'Contacto', icon: 'i-send', hint: 'Sección', run: go('#contacto') },
     { label: 'Descargar CV (PDF)', icon: 'i-download', hint: 'Acción', run: function () { var a = document.createElement('a'); a.href = CV_URL; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); } },

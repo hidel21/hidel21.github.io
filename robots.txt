@@ -1,4 +1,35 @@
+# Sitio público: se permite el rastreo a buscadores y asistentes de IA.
 User-agent: *
+Allow: /
+
+# Google (búsqueda y funciones de IA como AI Overviews / Gemini)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Bing / Copilot
+User-agent: Bingbot
+Allow: /
+
+# Asistentes de IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://hidel21.github.io/sitemap.xml
