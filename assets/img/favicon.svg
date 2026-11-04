@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Hideldev">
+  <defs>
+    <linearGradient id="hd-ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#2dd4bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="#0d0e14"/>
+  <rect x="8" y="8" width="496" height="496" rx="108" fill="none" stroke="url(#hd-ring)" stroke-width="16"/>
+  <path d="M128 128V384M128 270c0-46 34-80 76-80s76 34 76 80v114" fill="none" stroke="#ffffff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="330" y="372" width="84" height="40" rx="10" fill="#2dd4bf"/>
+</svg>

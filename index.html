@@ -1,322 +1,883 @@
-<!DOCTYPE html>
-<html lang="en" >
+<!doctype html>
+<html lang="es" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <title>Desarrollador de Software - Hidelberg</title>
-  <link rel="stylesheet" href="./style.css">
-  <script src="proyectos.json"></script>
-  <meta name="description" content="Experto en Desarrollo Web y Programación con más de 4 años de experiencia. Especializado en Python, JavaScript, PHP, Laravel y Wordpress. Habilidades en análisis de datos, web scraping, automatización y SEO. Profesional autodidacta y proactivo, comprometido con la excelencia y la mejora continua.">
-  <meta name="keywords" content="Desarrollador web experto, Programación en Python y JavaScript, Análisis de datos y web scraping, Automatización de procesos y conexión de API's, Desarrollo en PHP, Laravel, y Wordpress, Diseño de aplicaciones web robustas, Herramientas de inteligencia artificial, Optimización SEO y métricas web, Profesional autodidacta y proactivo en tecnología">
-  <!-- Resto del head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hideldev · Hidelberg Martínez — Desarrollador Senior & Especialista Odoo</title>
+  <meta name="description" content="Hidelberg Martínez (Hideldev), desarrollador senior y arquitecto de software con 6 años de experiencia. Odoo ERP v14–v19, Python, integraciones API, IA/LLMs y facturación electrónica para Venezuela, Colombia y México.">
+  <meta name="author" content="Hidelberg Martínez Espitia">
+  <meta name="theme-color" content="#0a0b10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://hidel21.github.io/">
+
+  <!-- Open Graph / redes -->
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="es_VE">
+  <meta property="og:url" content="https://hidel21.github.io/">
+  <meta property="og:site_name" content="Hideldev">
+  <meta property="og:title" content="Hideldev · Hidelberg Martínez — Senior Full Stack & Odoo">
+  <meta property="og:description" content="Convierto procesos manuales en sistemas que escalan: Odoo ERP v14–v19, Python, integraciones API e IA.">
+  <meta property="og:image" content="https://hidel21.github.io/assets/img/brand/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hideldev — Convierto procesos manuales en sistemas que escalan">
+  <meta property="profile:first_name" content="Hidelberg">
+  <meta property="profile:last_name" content="Martínez Espitia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Hidelberg21">
+  <meta name="twitter:image" content="https://hidel21.github.io/assets/img/brand/og-image.jpg">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Aplica el tema antes de pintar para evitar parpadeo -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hidelberg Martínez Espitia",
+    "alternateName": "Hideldev",
+    "jobTitle": "Desarrollador Senior & Arquitecto de Software",
+    "url": "https://hidel21.github.io/",
+    "image": "https://hidel21.github.io/assets/img/hidelberg-800.jpg",
+    "logo": "https://hidel21.github.io/assets/img/brand/hideldev-icon-512.png",
+    "email": "mailto:hidelmartinez21@gmail.com",
+    "telephone": "+58-422-403-7878",
+    "address": { "@type": "PostalAddress", "addressLocality": "Maracay", "addressRegion": "Aragua", "addressCountry": "VE" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Instituto Universitario de Tecnología Antonio Ricaurte" },
+    "knowsAbout": ["Odoo", "ERP", "Python", "PostgreSQL", "Facturación electrónica", "Nómina electrónica DIAN", "API REST", "React", "Node.js", "Docker", "CI/CD", "LLMs", "Inteligencia Artificial", "SEO técnico"],
+    "knowsLanguage": ["es", "en"],
+    "sameAs": [
+      "https://github.com/hidel21",
+      "https://www.linkedin.com/in/hidelberg-martinez-espitia/",
+      "https://codepen.io/hidelberg5"
+    ]
+  }
+  </script>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<link
-  rel="stylesheet"
-  href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-  integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-  crossorigin="anonymous"
-/>
-<link
-  href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap"
-  rel="stylesheet"
-/>
-<!-- START NAV -->
+  <!-- Sprite de iconos -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="hd-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient>
+      <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.52-.07-.15-.67-1.62-.91-2.21-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.99 1-3.65-.24-.38a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 21h14"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-erp" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+      <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8z"/><path d="m19 15 .8 2.2 2.2.8-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2L3 9.6l6.2-.9z"/></symbol>
+      <symbol id="i-repo" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-codepen" viewBox="0 0 24 24"><path d="m12 2 10 6.5v7L12 22 2 15.5v-7z"/><path d="M12 22v-6.5M22 8.5l-10 7-10-7M2 15.5l10-7 10 7M12 2v6.5"/></symbol>
+    </defs>
+  </svg>
 
-<nav id="navbar" class="nav">
-  <ul class="nav-list">
-    <li>
-      <a href="#developer-section">Sobre mi</a>
-    </li>
-    <li>
-      <a href="#projects">Trabajos</a>
-    </li>
-    <li>
-      <a href="#contact">Contacto</a>
-    </li>
-  </ul>
-</nav>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
-<!-- END NAV -->
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Hideldev — inicio">
+        <svg class="brand-mark" viewBox="0 0 512 512" aria-hidden="true">
+          <rect width="512" height="512" rx="116" fill="#0d0e14"/>
+          <rect x="8" y="8" width="496" height="496" rx="108" fill="none" stroke="url(#hd-ring)" stroke-width="16"/>
+          <path d="M128 128V384M128 270c0-46 34-80 76-80s76 34 76 80v114" fill="none" stroke="#fff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect class="brand-cursor" x="330" y="372" width="84" height="40" rx="10" fill="#2dd4bf"/>
+        </svg>
+        <span class="brand-text">hidel<span class="brand-dev">dev</span></span>
+      </a>
 
-<!-- START WELCOME SECTION -->
+      <nav class="main-nav" id="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
 
-<section id="welcome-section" class="welcome-section">
-  <h1>
-    <span class="code">&lt;</span>
-    ¡Hola, Soy Hidelberg!
-    <span class="code">&#47;&gt;</span>
-  </h1>
-    
-  <p>"Un desarrollador web Venezolano"</p>
-</section>
-
-<!-- END WELCOME SECTION -->
-
-<!-- START DEVELOPER SECTION -->
-
-<section id="developer-section" class="developer-section">
-  <div class="developer-info">
-    <img
-      src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1699902358/hideldev_aptcrg.jpg" 
-      alt="Hidelberg"
-      class="developer-photo"
-      />
-    <div class="developer-description">
-      <h2>
-        <span class="code">&lt;</span>
-        Hidelberg Martinez Espitia
-        <span class="code">&#47;&gt;</span>
-      </h2>
-      <p>
-        Soy Hidelberg Martinez, un entusiasta desarrollador de software con más de 4 años de experiencia en programación, inteligencia artificial y desarrollo web. Me especializo en Python y JavaScript, enfocándome en análisis de datos, web scraping y automatización de procesos. Además, tengo una profunda experiencia en PHP, Laravel y Wordpress, lo que me permite crear soluciones web atractivas y eficientes. Mi pasión por el SEO me ha llevado a desarrollar programas para optimizar métricas web, mejorando así la visibilidad en línea de mis proyectos.
-      </p>
-      <br>
-      <p>
-        Como profesional autodidacta y proactivo, me dedico al aprendizaje continuo y a la mejora constante, lo que me convierte en un activo valioso en equipos dinámicos y proyectos desafiantes. Mi actitud entusiasta y mi compromiso con la excelencia me impulsan a abordar nuevas oportunidades con energía y creatividad, siempre listo para contribuir al éxito de futuros proyectos con una visión innovadora y un enfoque práctico.
-      </p>
+      <div class="header-actions">
+        <button class="icon-btn cmdk-trigger" type="button" data-open-palette aria-label="Abrir buscador de comandos (Ctrl + K)">
+          <svg class="ico"><use href="#i-search"/></svg>
+          <kbd class="kbd-hint" aria-hidden="true">Ctrl K</kbd>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Cambiar a tema claro">
+          <svg class="ico ico-sun"><use href="#i-sun"/></svg>
+          <svg class="ico ico-moon"><use href="#i-moon"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-cta" href="#contacto">Hablemos</a>
+        <button class="icon-btn menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+          <svg class="ico ico-menu"><use href="#i-menu"/></svg>
+          <svg class="ico ico-close"><use href="#i-close"/></svg>
+        </button>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- END DEVELOPER SECTION -->
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-bg"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
 
-<!-- START PROJECTS SECTION -->
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="hero-badges reveal">
+            <p class="eyebrow eyebrow-status"><span class="status-dot" aria-hidden="true"></span> Disponible para nuevos proyectos</p>
+            <p class="eyebrow">
+              <svg class="ico"><use href="#i-pin"/></svg>
+              Aragua, Venezuela · Remoto e híbrido
+            </p>
+          </div>
+          <h1 id="hero-title" class="hero-title reveal">
+            Convierto procesos <em>manuales</em> en sistemas que
+            <span class="rotator" aria-hidden="true"><span class="rotator-word">escalan.</span></span>
+            <span class="visually-hidden">escalan.</span>
+          </h1>
+          <p class="hero-lead reveal">
+            Soy <strong>Hidelberg Martínez</strong>, desarrollador senior y arquitecto de software.
+            Llevo 6 años construyendo software que conecta código con resultados de negocio: menos trabajo manual,
+            datos confiables y sistemas que aguantan cuando la empresa crece. Especialista en <strong>Odoo (v14 → v19)</strong>,
+            Python e IA aplicada.
+          </p>
+          <div class="hero-ctas reveal">
+            <a class="btn btn-primary" href="#proyectos">
+              Ver proyectos <svg class="ico"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="assets/cv/Hidelberg-Martinez-CV.pdf" download>
+              <svg class="ico"><use href="#i-download"/></svg> Descargar CV
+            </a>
+          </div>
+          <ul class="hero-social reveal" aria-label="Perfiles">
+            <li><a href="https://github.com/hidel21" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ico"><use href="#i-github"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/hidelberg-martinez-espitia/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ico"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://wa.me/584224037878" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico"><use href="#i-whatsapp"/></svg></a></li>
+            <li><a href="mailto:hidelmartinez21@gmail.com" aria-label="Correo electrónico"><svg class="ico"><use href="#i-mail"/></svg></a></li>
+          </ul>
+        </div>
 
-<section id="projects" class="projects-section">
-  <h2 class="projects-section-header">Mis proyectos hechos en Codepen</h2>
+        <!-- Ventana de código interactiva -->
+        <div class="code-window reveal" role="region" aria-label="Fragmentos de código de ejemplo">
+          <div class="code-head">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div class="code-tabs" role="tablist" aria-label="Archivos">
+              <button role="tab" id="ct-0" aria-selected="true" aria-controls="code-body" data-snippet="0">webhook.py</button>
+              <button role="tab" id="ct-1" aria-selected="false" aria-controls="code-body" data-snippet="1" tabindex="-1">payroll.py</button>
+              <button role="tab" id="ct-2" aria-selected="false" aria-controls="code-body" data-snippet="2" tabindex="-1">Animales.jsx</button>
+            </div>
+          </div>
+          <pre class="code-body" id="code-body" role="tabpanel" aria-labelledby="ct-0" tabindex="0"><code>@http.route('/hubspot/webhook/deal', type='http',
+            auth='public', csrf=False)
+def deal_webhook(self, **kw):
+    body = request.httprequest.get_data()
+    if not self._valid_signature(body):  # HMAC v3
+        return Response(status=401)
+    Event = request.env['hubspot.webhook.event']
+    Event.sudo().enqueue(body)
+    return Response(status=200)  # ~50 ms</code></pre>
+          <div class="code-foot">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="code-foot-text">Odoo 18 · Python 3.11</span>
+          </div>
+        </div>
+      </div>
 
-  <div class="projects-grid">
-    <a
-      href="https://codepen.io/hidelberg5/pen/BaWQygg"
-      target="_blank"
-      class="project project-tile"
-    >
-      <img
-        class="project-image"
-        src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1628281357/portafolio/1_fkkody.jpg"
-        alt="project"
-      />
-      <p class="project-title">
-        <span class="code">&lt;</span>
-       Voyage Slider
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-    <a
-      href="https://codepen.io/hidelberg5/pen/bGWjpgN"
-      target="_blank"
-      class="project project-tile"
-    >
-      <img
-        class="project-image"
-        src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1628281373/portafolio/2_g6veqv.jpg"
-        alt="project"
-      />
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        Formulario Dev´s
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-    <a
-      href="https://codepen.io/hidelberg5/pen/qBrqELp"
-      target="_blank"
-      class="project project-tile"
-    >
-      <img
-        class="project-image"
-        src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1628281376/portafolio/5_psfup0.jpg"
-        alt="project"
-      />
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        React Slider
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-    <a
-      href="https://codepen.io/hidelberg5/pen/gOWjavm"
-      target="_blank"
-      class="project project-tile"
-    >
-      <img
-        class="project-image"
-        src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1628281382/portafolio/4_gadnva.jpg"
-        alt="project"
-      />
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        Tributo a Daniel Dhers
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-    <a
-      href="https://codepen.io/hidelberg5/pen/JjNBqzB"
-      target="_blank"
-      class="project project-tile"
-    >
-      <img
-        class="project-image"
-        src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1628281339/portafolio/3_xzbrzp.jpg"
-        alt="project"
-      />
-      <p class="project-title">
-        <span class="code">&lt;</span>
-       Calculadora de edad
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-    <a
-      href="https://codepen.io/hidelberg5/pen/XWRBwYe"
-      target="_blank"
-      class="project project-tile"
-    >
-      <img
-        class="project-image"
-        src="https://res.cloudinary.com/dmckqwu0p/image/upload/v1628281381/portafolio/6_faamxy.jpg"
-        alt="project"
-      />
-      <p class="project-title">
-        <span class="code">&lt;</span>
-        Documentación de Python
-        <span class="code">&#47;&gt;</span>
-      </p>
-    </a>
-  </div>
+      <!-- Métricas -->
+      <div class="container">
+        <dl class="stats reveal">
+          <div class="stat"><dt>Años de experiencia</dt><dd><span data-count="6">6</span>+</dd></div>
+          <div class="stat"><dt>Versiones de Odoo dominadas</dt><dd>v14→v19</dd></div>
+          <div class="stat"><dt>Menos tiempo en procesos fiscales</dt><dd>−<span data-count="40">40</span>%</dd></div>
+          <div class="stat"><dt>Países con ERP en producción (7 empresas)</dt><dd><span data-count="5">5</span></dd></div>
+          <div class="stat"><dt>Repositorios públicos</dt><dd><span data-count="50" id="repo-count">50</span>+</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <a
-    href="https://codepen.io/hidelberg5"
-    class="btn btn-show-all"
-    target="_blank"
-    >Mostrar Todo...<i class="fas fa-chevron-right"></i
-  ></a>
-</section>
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about">
+        <figure class="about-photo reveal">
+          <picture>
+            <source type="image/webp" srcset="assets/img/hidelberg-400.webp 400w, assets/img/hidelberg-800.webp 800w" sizes="(max-width: 860px) 90vw, 400px">
+            <img src="assets/img/hidelberg-800.jpg"
+                 srcset="assets/img/hidelberg-400.jpg 400w, assets/img/hidelberg-800.jpg 800w"
+                 sizes="(max-width: 860px) 90vw, 400px"
+                 width="800" height="1000" loading="lazy" decoding="async"
+                 alt="Hidelberg Martínez de pie en una terraza con la ciudad y las montañas de fondo">
+          </picture>
+          <figcaption>
+            <svg class="brand-mini" viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="116" fill="#0d0e14"/><path d="M128 128V384M128 270c0-46 34-80 76-80s76 34 76 80v114" fill="none" stroke="#fff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/><rect x="330" y="372" width="84" height="40" rx="10" fill="#2dd4bf"/></svg>
+            Hideldev
+          </figcaption>
+        </figure>
 
-<section id="projects" class="projects-section">
-  <h2 class="projects-section-header">Proyectos más Resaltantes en Github</h2>
-  <div class="projects-grid" id="otros-proyectos-grid">
-    <!-- Los proyectos se añadirán aquí dinámicamente -->
-  </div>
-</section>
+        <div class="about-copy">
+          <p class="section-kicker reveal">01 · Sobre mí</p>
+          <h2 id="about-title" class="section-title reveal">¿Tu equipo pierde horas en tareas repetitivas o tu ERP no acompaña el <em>crecimiento</em>?</h2>
+          <div class="prose reveal">
+            <p class="prose-lead">Eso es lo que resuelvo.</p>
+            <p>
+              He sido responsable del ERP de un grupo de <strong>siete compañías en cinco países</strong> sobre Odoo 18 Enterprise,
+              he migrado módulos core de <strong>v14 a v18</strong> sin detener la operación y he implementado
+              facturación y nómina electrónica para <strong>Venezuela, Colombia y México</strong>.
+            </p>
+            <p>
+              Uso la IA y los agentes como <strong>herramientas, no como muletas</strong>: domino los fundamentos, así que la uso
+              para acelerar, no para tapar lo que no sé. Aprendo el contexto, entiendo el problema y entrego código que reviso,
+              entiendo y sostengo.
+            </p>
+            <p>
+              Lo que me diferencia: <strong>pienso como dueño de producto</strong>. Entiendo finanzas, monetización y el
+              «por qué» detrás de cada requerimiento.
+            </p>
+          </div>
 
-<script>
-  // Función que crea una tarjeta de proyecto y la añade al grid
-  function createProjectCard(projectName, projectData) {
-  const { repositorio, imagen, descripcion } = projectData;
+          <ul class="facts reveal">
+            <li>
+              <svg class="ico"><use href="#i-cap"/></svg>
+              <div><strong>TSU en Informática</strong><span>IUT Antonio Ricaurte · 2019–2022</span></div>
+            </li>
+            <li>
+              <svg class="ico"><use href="#i-globe"/></svg>
+              <div><strong>Español nativo · Inglés B2</strong><span>EF SET Upper Intermediate</span></div>
+            </li>
+            <li>
+              <svg class="ico"><use href="#i-layers"/></svg>
+              <div><strong>Líder técnico</strong><span>Scrum · equipos multidisciplinarios</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  // Crear el enlace del repositorio
-  const projectLink = document.createElement('a');
-  projectLink.href = repositorio;
-  projectLink.target = '_blank';
-  projectLink.classList.add('project', 'project-tile');
+    <!-- ============ SERVICIOS ============ -->
+    <section class="section section-alt" id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker reveal">02 · Qué hago</p>
+          <h2 id="services-title" class="section-title reveal">Del modelo de datos a la pantalla del usuario.</h2>
+        </header>
 
-  // Crear la imagen del proyecto
-  const projectImage = document.createElement('img');
-  projectImage.src = imagen;
-  projectImage.alt = `Imagen de ${projectName}`;
-  projectImage.classList.add('project-image');
-  projectLink.appendChild(projectImage);
+        <ul class="services">
+          <li class="card service spotlight reveal">
+            <span class="service-icon"><svg class="ico"><use href="#i-erp"/></svg></span>
+            <h3>Odoo ERP a medida (v14–v19)</h3>
+            <p>Módulos propios en Python y XML, reportes SQL avanzados, automatización con QR y flujos operativos que reducen errores y tiempo. Migraciones entre versiones sin detener la operación.</p>
+            <ul class="tags"><li>Python</li><li>ORM</li><li>QWeb</li><li>PostgreSQL</li></ul>
+          </li>
+          <li class="card service spotlight reveal">
+            <span class="service-icon"><svg class="ico"><use href="#i-receipt"/></svg></span>
+            <h3>Localización fiscal multipaís</h3>
+            <p>Facturación electrónica para Venezuela, Colombia y México, nómina electrónica DIAN, retenciones y contabilidad alineadas con la normativa de cada país.</p>
+            <ul class="tags"><li>SENIAT</li><li>DIAN</li><li>CFDI</li><li>Nómina</li></ul>
+          </li>
+          <li class="card service spotlight reveal">
+            <span class="service-icon"><svg class="ico"><use href="#i-plug"/></svg></span>
+            <h3>Integraciones y automatización</h3>
+            <p>APIs REST y webhooks seguros, bots, web scraping y dashboards de monitoreo en tiempo real que conectan el ERP con CRMs, e-commerce y apps externas.</p>
+            <ul class="tags"><li>REST</li><li>Webhooks</li><li>HubSpot</li><li>Scraping</li></ul>
+          </li>
+          <li class="card service spotlight reveal">
+            <span class="service-icon"><svg class="ico"><use href="#i-sparkles"/></svg></span>
+            <h3>IA y LLMs</h3>
+            <p>Testing y evaluación de modelos de lenguaje — rendimiento, calidad de respuestas y métricas — para decidir qué modelo funciona de verdad en producción.</p>
+            <ul class="tags"><li>LLMs</li><li>Evaluación</li><li>Agentes</li><li>Prompting</li></ul>
+          </li>
+          <li class="card service spotlight reveal">
+            <span class="service-icon"><svg class="ico"><use href="#i-layers"/></svg></span>
+            <h3>Web, PWA y SEO técnico</h3>
+            <p>Aplicaciones con React y Laravel, sitios en WordPress y JetEngine, tiendas WooCommerce y Shopify, más auditorías SEO y estrategia de contenido.</p>
+            <ul class="tags"><li>React</li><li>Laravel</li><li>WordPress</li><li>Core Web Vitals</li></ul>
+          </li>
+          <li class="card service spotlight reveal">
+            <span class="service-icon"><svg class="ico"><use href="#i-code"/></svg></span>
+            <h3>DevOps y despliegue</h3>
+            <p>Docker, Jenkins, CI/CD y arquitectura de microservicios para desplegar rápido y sin sorpresas, con saneamiento de datos antes de salir a producción.</p>
+            <ul class="tags"><li>Docker</li><li>Jenkins</li><li>CI/CD</li><li>Microservicios</li></ul>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-  // Crear el título del proyecto
-  const projectTitle = document.createElement('p');
-  projectTitle.classList.add('project-title');
+    <!-- ============ EXPERIENCIA ============ -->
+    <section class="section" id="experiencia" aria-labelledby="exp-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker reveal">03 · Experiencia</p>
+          <h2 id="exp-title" class="section-title reveal">Trayectoria profesional.</h2>
+        </header>
 
-  // Añadir los elementos de código a los lados del nombre del proyecto
-  const codeOpen = document.createElement('span');
-  codeOpen.classList.add('code');
-  codeOpen.innerHTML = '&lt;';
-  const codeClose = document.createElement('span');
-  codeClose.classList.add('code');
-  codeClose.innerHTML = '/&gt;';
+        <div class="experience reveal">
+          <div class="exp-tabs" role="tablist" aria-label="Empresas" aria-orientation="vertical">
+            <button role="tab" id="et-0" aria-controls="ep-0" aria-selected="true">
+              <span class="exp-company">Independiente <span class="exp-now">Actual</span></span><span class="exp-when">2026 – hoy</span>
+            </button>
+            <button role="tab" id="et-1" aria-controls="ep-1" aria-selected="false" tabindex="-1">
+              <span class="exp-company">MyIntelli</span><span class="exp-when">ago – oct 2026</span>
+            </button>
+            <button role="tab" id="et-2" aria-controls="ep-2" aria-selected="false" tabindex="-1">
+              <span class="exp-company">INGEINT C.A.</span><span class="exp-when">2025 – 2026</span>
+            </button>
+            <button role="tab" id="et-3" aria-controls="ep-3" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Binaural C.A.</span><span class="exp-when">2025</span>
+            </button>
+            <button role="tab" id="et-4" aria-controls="ep-4" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Bera Motorcycles</span><span class="exp-when">2024 – 2025</span>
+            </button>
+            <button role="tab" id="et-5" aria-controls="ep-5" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Taranis Galicia</span><span class="exp-when">2024 – 2025</span>
+            </button>
+            <button role="tab" id="et-6" aria-controls="ep-6" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Navicu.com</span><span class="exp-when">2023 – 2024</span>
+            </button>
+            <button role="tab" id="et-7" aria-controls="ep-7" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Wearecontent</span><span class="exp-when">2023</span>
+            </button>
+            <button role="tab" id="et-8" aria-controls="ep-8" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Kalstein France</span><span class="exp-when">2023</span>
+            </button>
+            <button role="tab" id="et-9" aria-controls="ep-9" aria-selected="false" tabindex="-1">
+              <span class="exp-company">Web Sell Corp.</span><span class="exp-when">2022 – 2023</span>
+            </button>
+            <button role="tab" id="et-10" aria-controls="ep-10" aria-selected="false" tabindex="-1">
+              <span class="exp-company">YOU3DTOKEN</span><span class="exp-when">2020 – 2022</span>
+            </button>
+          </div>
 
-  // Añadir el nombre del proyecto al título
-  projectTitle.appendChild(codeOpen);
-  projectTitle.appendChild(document.createTextNode(descripcion)); // Usando descripcion como titulo
-  projectTitle.appendChild(codeClose);
+          <div class="exp-panels">
+            <article class="exp-panel" role="tabpanel" id="ep-0" aria-labelledby="et-0" tabindex="0">
+              <header>
+                <h3>Desarrollador Senior & Consultor Odoo <span>· Independiente</span></h3>
+                <p class="exp-date">Noviembre 2026 – Actualidad · Remoto</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Odoo ERP v14–v19:</strong> módulos a medida, migraciones entre versiones, reportes SQL avanzados y localización fiscal para empresas que necesitan que su ERP acompañe el crecimiento.</li>
+                <li><strong>Integraciones y automatización:</strong> APIs REST, webhooks, bots y dashboards en Python que eliminan trabajo manual y dejan datos confiables.</li>
+                <li><strong>IA aplicada:</strong> evaluación de modelos de lenguaje y desarrollo asistido por IA para entregar más rápido sin sacrificar calidad.</li>
+              </ul>
+              <ul class="tags"><li>Odoo</li><li>Python</li><li>PostgreSQL</li><li>Integraciones</li><li>LLMs</li></ul>
+            </article>
 
-  projectLink.appendChild(projectTitle);
+            <article class="exp-panel" role="tabpanel" id="ep-1" aria-labelledby="et-1" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador Odoo <span>@ MyIntelli</span></h3>
+                <p class="exp-date">Agosto 2026 – Octubre 2026 · Híbrido</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Responsable del ERP del grupo:</strong> Odoo 18 Enterprise para <mark>siete compañías en cinco países</mark>.</li>
+                <li><strong>Módulos propios en Python y XML:</strong> motor de comisiones multimoneda, nómina electrónica DIAN e integraciones de facturación electrónica para Colombia, Venezuela y México.</li>
+                <li><strong>Producción y datos:</strong> despliegue en producción y saneamiento de datos contables.</li>
+              </ul>
+              <ul class="tags"><li>Odoo 18 Enterprise</li><li>Python</li><li>XML</li><li>DIAN</li><li>Multimoneda</li><li>Multicompañía</li></ul>
+            </article>
 
-  return projectLink;
-}
+            <article class="exp-panel" role="tabpanel" id="ep-2" aria-labelledby="et-2" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador Senior Odoo <span>@ INGEINT C.A.</span></h3>
+                <p class="exp-date">Noviembre 2025 – Julio 2026 · Híbrido</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Liderazgo de arquitectura:</strong> diseñé y desarrollé módulos personalizados en Odoo v18 y v19 para clientes corporativos, optimizando flujos de trabajo críticos.</li>
+                <li><strong>Cumplimiento fiscal y localización:</strong> encabecé la implementación de las localizaciones venezolanas para contabilidad, nómina y facturación electrónica, con 100% de apego a la normativa.</li>
+                <li><strong>Calidad y rendimiento:</strong> refactoricé código heredado en Python y XML/QWeb, <mark>reduciendo errores del sistema en un 35%</mark> y acelerando las consultas a base de datos.</li>
+              </ul>
+              <ul class="tags"><li>Odoo 18</li><li>Odoo 19</li><li>Python</li><li>XML/QWeb</li><li>PostgreSQL</li></ul>
+            </article>
 
-  
-  // Función para cargar los proyectos desde el JSON y añadirlos al DOM
-  function loadProjects() {
-    fetch('proyectos.json')
-      .then(response => response.json())
-      .then(data => {
-        const projectsGrid = document.getElementById('otros-proyectos-grid');
-  
-        // Iterar sobre cada proyecto en el JSON y añadirlo al DOM
-        Object.entries(data).forEach(([projectName, projectData]) => {
-          const projectCard = createProjectCard(projectName, projectData);
-          projectsGrid.appendChild(projectCard);
-        });
-      })
-      .catch(error => console.error('Error al cargar los proyectos:', error));
-  }
-  
-  // Llamar a la función loadProjects cuando la ventana se carga
-  window.addEventListener('load', loadProjects);
-</script>
+            <article class="exp-panel" role="tabpanel" id="ep-3" aria-labelledby="et-3" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador Odoo <span>@ Binaural C.A.</span></h3>
+                <p class="exp-date">Julio 2025 – Noviembre 2025 · Presencial</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Migración a gran escala:</strong> lideré la actualización de módulos core (Nómina, Contabilidad y Presupuesto) desde Odoo v14 hasta v18, modernizando código legacy sin interrupciones operativas.</li>
+                <li><strong>Nómina y RR. HH.:</strong> optimicé reglas salariales, estructuras, contratos y gestión del tiempo de personal en Python/PostgreSQL y QWeb/XML bajo Scrum.</li>
+                <li><strong>Optimización fiscal:</strong> automaticé retenciones y cálculos fiscales, <mark>reduciendo el tiempo de procesamiento mensual en un 40%</mark>.</li>
+              </ul>
+              <ul class="tags"><li>Odoo 14 → 18</li><li>Migraciones</li><li>Nómina</li><li>Python</li><li>Scrum</li></ul>
+            </article>
 
-<!-- END PROJECTS SECTION -->
+            <article class="exp-panel" role="tabpanel" id="ep-4" aria-labelledby="et-4" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador de Software Sénior <span>@ Bera Motorcycles</span></h3>
+                <p class="exp-date">Septiembre 2024 – Julio 2025 · Venezuela</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>ERP Odoo 16:</strong> responsable del desarrollo, optimización y automatización del sistema, con módulos nuevos para manufactura, inventario y ventas.</li>
+                <li><strong>Integración de sistemas:</strong> diseñé APIs REST en Odoo para conectar el ERP con aplicaciones externas y plataformas de e-commerce.</li>
+                <li><strong>Liderazgo técnico:</strong> como cabeza de grupo en el departamento de desarrollo, coordiné al equipo de programadores para entregas eficientes y escalables.</li>
+              </ul>
+              <ul class="tags"><li>Odoo 16</li><li>API REST</li><li>PostgreSQL</li><li>Liderazgo</li></ul>
+            </article>
 
-<!-- START CONTACT SECTION -->
+            <article class="exp-panel" role="tabpanel" id="ep-5" aria-labelledby="et-5" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador Web & Líder SEO <span>@ Taranis Galicia</span></h3>
+                <p class="exp-date">Febrero 2024 – Febrero 2025 · Autónomo, remoto (en paralelo)</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Impacto orgánico:</strong> desarrollé más de 10 sitios web, tiendas WooCommerce y Shopify y plataformas de e-learning, <mark>con un incremento sostenido del 30% en tráfico orgánico</mark>.</li>
+                <li><strong>SEO técnico:</strong> velocidad de carga, indexabilidad, arquitectura web, Core Web Vitals, link building y estrategia de contenidos.</li>
+                <li><strong>Liderazgo:</strong> coordiné equipos de desarrollo, marketing y diseño para la expansión en mercados de España y Europa.</li>
+              </ul>
+              <ul class="tags"><li>WordPress</li><li>WooCommerce</li><li>Shopify</li><li>SEO técnico</li></ul>
+            </article>
 
-<section id="contact" class="contact-section">
-  <div class="contact-section-header">
-    <h2>¡Claro que trabajaremos juntos..!</h2>
-    <p>Si necesitan un desarrollador de calidad y a la vez un rockstar, Contactenme</p>
-  </div>
-  <div class="contact-links">
-    
-    <a
-      id="profile-link"
-      href="https://codepen.io/hidelberg5"
-      target="_blank"
-      class="btn contact-details"
-      ><i class="fab fa-codepen" aria-hidden="true"></i> Codepen</a
-    >
-    <a
-      href="https://twitter.com/Hidelberg21"
-      target="_blank"
-      class="btn contact-details"
-      ><i class="fab fa-twitter"></i> Twitter</a
-    >
-    <a href="mailto:hidelmartinez21@gmail.com" class="btn contact-details"
-      ><i class="fas fa-at"></i> Enviar un correo</a
-    >
-    <a href="https://wa.link/48j7w4" class="btn contact-details"
-      ><i class="fab fa-whatsapp"></i> Llámame</a
-    >
+            <article class="exp-panel" role="tabpanel" id="ep-6" aria-labelledby="et-6" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador Web <span>@ Navicu.com</span></h3>
+                <p class="exp-date">Noviembre 2023 – Abril 2024 · Híbrido</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Optimización de plataforma:</strong> reestructuré la arquitectura frontend integrando React, <mark>aumentando la velocidad web en un 40%</mark>.</li>
+                <li><strong>Integración core:</strong> integré APIs de motores de búsqueda de viajes y reservas en tiempo real, convirtiéndolo en el producto digital de mayor rendimiento de la empresa.</li>
+              </ul>
+              <ul class="tags"><li>React</li><li>PHP</li><li>Laravel</li><li>APIs de reservas</li></ul>
+            </article>
 
-        <a href="https://github.com/hidel21" target="_blank" class="btn contact-details">
-      <i class="fab fa-github"></i> GitHub
-    </a>
-  </div>
-</section>
+            <article class="exp-panel" role="tabpanel" id="ep-7" aria-labelledby="et-7" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador de IA y Automatización <span>@ Wearecontent</span></h3>
+                <p class="exp-date">Junio 2023 – Octubre 2023 · Remoto (Bogotá)</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Aplicaciones de IA:</strong> desarrollé herramientas de IA y automatización para la agencia.</li>
+                <li><strong>Inteligencia de datos:</strong> implementé pipelines automatizados de datos y métricas, <mark>mejorando en un 35% la eficiencia</mark> en la recolección de información operativa.</li>
+              </ul>
+              <ul class="tags"><li>Python</li><li>IA</li><li>Zapier</li><li>Pipelines</li></ul>
+            </article>
 
-<!-- END CONTACT SECTION -->
+            <article class="exp-panel" role="tabpanel" id="ep-8" aria-labelledby="et-8" tabindex="0" hidden>
+              <header>
+                <h3>Software Developer & Analista SEO <span>@ Kalstein France</span></h3>
+                <p class="exp-date">Enero 2023 – Mayo 2023</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Desarrollo:</strong> e-commerce y plataformas de realidad virtual.</li>
+                <li><strong>Posicionamiento web:</strong> consultoría y análisis SEO.</li>
+              </ul>
+              <ul class="tags"><li>PHP</li><li>Node.js</li><li>E-commerce</li><li>SEO</li></ul>
+            </article>
 
-<!-- START FOOTER SECTION -->
+            <article class="exp-panel" role="tabpanel" id="ep-9" aria-labelledby="et-9" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador Web <span>@ Web Sell Corp.</span></h3>
+                <p class="exp-date">Marzo 2022 – Enero 2023 · Miami, EE. UU.</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Desarrollo web y SEO:</strong> sitios en PHP optimizados para motores de búsqueda.</li>
+              </ul>
+              <ul class="tags"><li>PHP</li><li>WordPress</li><li>SEO</li></ul>
+            </article>
 
-<footer>
-  <p>
-    &copy; Creado por
-    <a href="https://www.linkedin.com/in/hidelberg-martnez-espitia/" target="_blank"
-      >Hidelberg Martinez Espitia</a>
-  </p>
-</footer>
+            <article class="exp-panel" role="tabpanel" id="ep-10" aria-labelledby="et-10" tabindex="0" hidden>
+              <header>
+                <h3>Desarrollador de Software · Jefe de Operaciones <span>@ YOU3DTOKEN</span></h3>
+                <p class="exp-date">Marzo 2020 – Marzo 2022</p>
+              </header>
+              <ul class="exp-list">
+                <li><strong>Desarrollador de software</strong> (2021–2022): desarrollo con Node.js en equipo.</li>
+                <li><strong>Jefe de operaciones</strong> (2020–2022): gestión operativa del proyecto.</li>
+              </ul>
+              <ul class="tags"><li>Node.js</li><li>JavaScript</li><li>Operaciones</li></ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- END FOOTER SECTION -->
-<!-- partial -->
-  <script  src="./script.js"></script>
+    <!-- ============ PROYECTOS ============ -->
+    <section class="section section-alt" id="proyectos" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head section-head-split">
+          <div>
+            <p class="section-kicker reveal">04 · Proyectos</p>
+            <h2 id="projects-title" class="section-title reveal">Trabajo seleccionado.</h2>
+          </div>
+          <div class="filters reveal" role="group" aria-label="Filtrar proyectos por categoría">
+            <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+            <button class="chip" type="button" data-filter="odoo" aria-pressed="false">Odoo & ERP</button>
+            <button class="chip" type="button" data-filter="fullstack" aria-pressed="false">Full Stack</button>
+            <button class="chip" type="button" data-filter="data" aria-pressed="false">Datos & IA</button>
+            <button class="chip" type="button" data-filter="seo" aria-pressed="false">SEO</button>
+          </div>
+        </header>
 
+        <p class="filter-status visually-hidden" aria-live="polite" id="filter-status"></p>
+
+        <ul class="projects" id="projects-grid">
+          <li class="card project featured spotlight reveal" data-category="odoo">
+            <div class="project-top">
+              <span class="project-cat">Odoo 18 · Integración</span>
+              <a class="project-link" href="https://github.com/hidel21/hubspot_invoice_bridge" target="_blank" rel="noopener" aria-label="Ver HubSpot → Odoo Bridge en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>HubSpot → Odoo Bridge</h3>
+            <p>Cuando un negocio de HubSpot se marca como ganado, Odoo genera automáticamente la cotización o factura en borrador, con el cliente, la compañía y la posición fiscal correctos.</p>
+            <ul class="project-points">
+              <li>Validación de firma HMAC-SHA256 v3 y ventana anti-replay de 5 min</li>
+              <li>Respuesta al webhook en ~50 ms y procesamiento diferido por cron</li>
+              <li>Idempotencia en dos capas para no duplicar documentos</li>
+            </ul>
+            <ul class="tags"><li>Python</li><li>Odoo 18</li><li>Webhooks</li><li>HubSpot API</li></ul>
+          </li>
+
+          <li class="card project featured spotlight reveal" data-category="fullstack">
+            <div class="project-top">
+              <span class="project-cat">Full Stack · PWA</span>
+              <a class="project-link" href="https://github.com/hidel21/el-hato" target="_blank" rel="noopener" aria-label="Ver Hato en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Hato — gestión ganadera</h3>
+            <p>Sistema para fincas de cría y engorde usado por administrador, veterinario y capataz. Diseñado para el campo: una mano, pleno sol y poca señal.</p>
+            <ul class="project-points">
+              <li>PWA instalable, mobile-first, con roles y autenticación JWT</li>
+              <li>API FastAPI con migraciones Alembic sobre PostgreSQL 16</li>
+              <li>Entorno reproducible con Docker y tests con Pytest y Vitest</li>
+            </ul>
+            <ul class="tags"><li>React</li><li>Vite</li><li>Tailwind</li><li>TanStack Query</li><li>FastAPI</li><li>Docker</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="odoo">
+            <div class="project-top">
+              <span class="project-cat">Odoo · Nómina</span>
+              <a class="project-link" href="https://github.com/hidel21/custom_payroll" target="_blank" rel="noopener" aria-label="Ver Custom Payroll en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Liquidación de comisiones</h3>
+            <p>Circuito completo para pagar comisiones comerciales en nómina, separado del cálculo contable: estados Por liquidar → Liquidada → Cerrada, con wizard, reportes, migraciones y tests.</p>
+            <ul class="tags"><li>Odoo</li><li>Python</li><li>Nómina</li><li>Tests</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="odoo">
+            <div class="project-top">
+              <span class="project-cat">Odoo · Contabilidad</span>
+              <a class="project-link" href="https://github.com/hidel21/payroll_provisions" target="_blank" rel="noopener" aria-label="Ver Payroll Provisions en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Liquidación de prestaciones</h3>
+            <p>Traslada en una sola pantalla lo provisionado de prima, vacaciones, cesantías e intereses a cuentas por pagar, empleado por empleado, y concilia. Antes: una mañana de trabajo manual.</p>
+            <ul class="tags"><li>Odoo</li><li>Contabilidad</li><li>Conciliación</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="odoo">
+            <div class="project-top">
+              <span class="project-cat">Odoo · API REST</span>
+              <a class="project-link" href="https://github.com/hidel21/ODOO-API" target="_blank" rel="noopener" aria-label="Ver Odoo API en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>API de facturación para Odoo</h3>
+            <p>Módulo con controladores REST autenticados por Bearer token para consultar facturas desde aplicaciones móviles, web o de escritorio.</p>
+            <ul class="tags"><li>Odoo</li><li>REST</li><li>JSON</li><li>Auth</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="fullstack data">
+            <div class="project-top">
+              <span class="project-cat">Full Stack · Gestión</span>
+              <a class="project-link" href="https://github.com/hidel21/marfil" target="_blank" rel="noopener" aria-label="Ver Sistema Marfil en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Sistema Marfil</h3>
+            <p>Aplicación de inventario, ventas, cuotas, cobranza y reportes PDF que reemplazó un libro de Excel, con migración de datos y despliegue en contenedor.</p>
+            <ul class="tags"><li>Python</li><li>Streamlit</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>Docker</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="data">
+            <div class="project-top">
+              <span class="project-cat">Datos · Reportes</span>
+              <a class="project-link" href="https://github.com/hidel21/consultas-contabilidad" target="_blank" rel="noopener" aria-label="Ver Generador de Reportes en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Generador de reportes fiscales</h3>
+            <p>Reportes dinámicos en Excel (placas por cliente, facturación con seriales y despachos para SENIAT) con filtros por fecha y localidad.</p>
+            <ul class="tags"><li>Streamlit</li><li>Pandas</li><li>SQLAlchemy</li><li>PostgreSQL</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="fullstack">
+            <div class="project-top">
+              <span class="project-cat">App · Eventos</span>
+              <a class="project-link" href="https://github.com/hidel21/Sorteo-en-Streamlit" target="_blank" rel="noopener" aria-label="Ver Rifa Digital en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Rifa digital corporativa</h3>
+            <p>Sorteos transparentes en vivo para eventos: por localidad o globales, múltiples rondas, animación previa al ganador y exportación a Excel.</p>
+            <ul class="tags"><li>Python</li><li>Streamlit</li><li>Pandas</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="seo data">
+            <div class="project-top">
+              <span class="project-cat">SEO · Automatización</span>
+              <a class="project-link" href="https://github.com/hidel21/WAC-matriz-seo" target="_blank" rel="noopener" aria-label="Ver Matriz SEO en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Matriz SEO</h3>
+            <p>Analiza listas de URLs y extrae métricas SEO esenciales directamente en el navegador.</p>
+            <ul class="tags"><li>Python</li><li>BeautifulSoup</li><li>Pandas</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="seo">
+            <div class="project-top">
+              <span class="project-cat">SEO · Search Console</span>
+              <a class="project-link" href="https://github.com/hidel21/backlink-tracker" target="_blank" rel="noopener" aria-label="Ver Backlink Tracker en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Backlink Tracker</h3>
+            <p>App web para seguir los backlinks de un sitio usando la API de Google Search Console.</p>
+            <ul class="tags"><li>Streamlit</li><li>Search Console API</li><li>Matplotlib</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="seo data">
+            <div class="project-top">
+              <span class="project-cat">SEO · Rendimiento</span>
+              <a class="project-link" href="https://github.com/hidel21/performance-analyzer" target="_blank" rel="noopener" aria-label="Ver Performance Analyzer en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Performance Analyzer</h3>
+            <p>Recopilación programada de datos de rendimiento SEO de un sitio a través de Google Search Console.</p>
+            <ul class="tags"><li>Python</li><li>Search Console</li><li>Pandas</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="data">
+            <div class="project-top">
+              <span class="project-cat">Visión por computadora</span>
+              <a class="project-link" href="https://github.com/hidel21/Reconocimiento-Facial-con-Python" target="_blank" rel="noopener" aria-label="Ver Reconocimiento Facial en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Reconocimiento facial</h3>
+            <p>Detección y reconocimiento de rostros en video con OpenCV, dlib y NumPy.</p>
+            <ul class="tags"><li>Python</li><li>OpenCV</li><li>dlib</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="data">
+            <div class="project-top">
+              <span class="project-cat">Datos · Deportes</span>
+              <a class="project-link" href="https://github.com/hidel21/Estadisticas-MLB" target="_blank" rel="noopener" aria-label="Ver Estadísticas MLB en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Estadísticas MLB</h3>
+            <p>Extracción y visualización de estadísticas de José Altuve y Luis Arráez.</p>
+            <ul class="tags"><li>Pandas</li><li>lxml</li><li>Matplotlib</li></ul>
+          </li>
+
+          <li class="card project spotlight reveal" data-category="data">
+            <div class="project-top">
+              <span class="project-cat">Automatización</span>
+              <a class="project-link" href="https://github.com/hidel21/Rellenador-de-PDF" target="_blank" rel="noopener" aria-label="Ver Rellenador de PDF en GitHub"><svg class="ico"><use href="#i-github"/></svg></a>
+            </div>
+            <h3>Rellenador de PDF</h3>
+            <p>Completa formularios PDF automáticamente con datos de una base MySQL.</p>
+            <ul class="tags"><li>PyPDF2</li><li>MySQL</li><li>Streamlit</li></ul>
+          </li>
+        </ul>
+
+        <!-- Actividad en GitHub (se completa con la API pública) -->
+        <div class="gh-activity card reveal" id="gh-activity">
+          <div class="gh-head">
+            <div>
+              <h3><svg class="ico"><use href="#i-github"/></svg> Actividad reciente en GitHub</h3>
+              <p class="muted" id="gh-sub">Últimos repositorios con cambios, en vivo desde github.com/hidel21.</p>
+            </div>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/hidel21?tab=repositories" target="_blank" rel="noopener">
+              Ver todos <svg class="ico"><use href="#i-external"/></svg>
+            </a>
+          </div>
+          <div class="gh-langs" id="gh-langs" hidden>
+            <div class="lang-bar" id="lang-bar" role="img"></div>
+            <ul class="lang-legend" id="lang-legend"></ul>
+          </div>
+          <ul class="gh-list" id="gh-list">
+            <li class="gh-skeleton"></li><li class="gh-skeleton"></li><li class="gh-skeleton"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="section-kicker reveal">05 · Stack</p>
+          <h2 id="stack-title" class="section-title reveal">Herramientas con las que entrego.</h2>
+        </header>
+
+        <div class="stack-grid">
+          <div class="stack-group card reveal">
+            <h3><svg class="ico"><use href="#i-erp"/></svg> Backend & ERP</h3>
+            <ul class="tags tags-lg"><li class="hl">Odoo v14–v19</li><li class="hl">Python</li><li>Node.js</li><li>Express</li><li>FastAPI</li><li>Django</li><li>Laravel</li><li>PHP</li></ul>
+          </div>
+          <div class="stack-group card reveal">
+            <h3><svg class="ico"><use href="#i-code"/></svg> Frontend, PWA & Mobile</h3>
+            <ul class="tags tags-lg"><li class="hl">React</li><li>JavaScript ES6+</li><li>Vue.js</li><li>Tailwind CSS</li><li>PWA</li><li>React Native</li><li>WordPress</li><li>JetEngine</li></ul>
+          </div>
+          <div class="stack-group card reveal">
+            <h3><svg class="ico"><use href="#i-layers"/></svg> Bases de datos</h3>
+            <ul class="tags tags-lg"><li class="hl">PostgreSQL</li><li>SQL avanzado</li><li>MySQL</li><li>MongoDB</li><li>Elasticsearch</li><li>SQLAlchemy</li></ul>
+          </div>
+          <div class="stack-group card reveal">
+            <h3><svg class="ico"><use href="#i-sparkles"/></svg> IA & Automatización</h3>
+            <ul class="tags tags-lg"><li class="hl">LLMs</li><li>Evaluación de modelos</li><li>Agentes</li><li>Prompt Engineering</li><li>Zapier</li><li>Pandas</li><li>Streamlit</li></ul>
+          </div>
+          <div class="stack-group card reveal">
+            <h3><svg class="ico"><use href="#i-repo"/></svg> DevOps & herramientas</h3>
+            <ul class="tags tags-lg"><li class="hl">Docker</li><li>Git</li><li>Jenkins</li><li>CI/CD</li><li>Microservicios</li><li>Tableau</li><li>Scrum</li></ul>
+          </div>
+          <div class="stack-group card reveal">
+            <h3><svg class="ico"><use href="#i-plug"/></svg> Integraciones & APIs</h3>
+            <ul class="tags tags-lg"><li class="hl">API REST</li><li>Webhooks</li><li>HubSpot API</li><li>Search Console API</li><li>JWT / Bearer</li></ul>
+          </div>
+          <div class="stack-group stack-certs card reveal">
+            <div class="certs-head">
+              <h3><svg class="ico"><use href="#i-award"/></svg> Certificaciones <span class="count">19</span></h3>
+              <a class="btn btn-ghost btn-sm" href="https://www.linkedin.com/in/hidelberg-martinez-espitia/details/certifications/" target="_blank" rel="noopener">Ver credenciales <svg class="ico"><use href="#i-external"/></svg></a>
+            </div>
+            <ul class="cert-list">
+              <li>EF SET English Certificate — B2 Upper Intermediate <span>EF · 2025</span></li>
+              <li>Ciberseguridad y Privacidad para Empresas <span>Platzi · 2024</span></li>
+              <li>Introducción a Elasticsearch <span>Platzi · 2023</span></li>
+              <li>Data Analysis with Python <span>freeCodeCamp · 2023</span></li>
+              <li>Inbound Marketing <span>HubSpot Academy · 2023</span></li>
+              <li>Prompt Engineering con ChatGPT <span>Platzi · 2023</span></li>
+            </ul>
+            <details class="cert-more">
+              <summary>Ver 13 certificaciones más</summary>
+              <ul class="cert-list">
+                <li>Aprende Análisis de Datos <span>LinkedIn · 2023</span></li>
+                <li>Estrategia y Planeación de Contenidos para SEO <span>Platzi · 2022</span></li>
+                <li>Introducción a SEO: Posicionamiento en Buscadores <span>Platzi · 2022</span></li>
+                <li>Python Intermedio: Comprehensions, Lambdas y Manejo de Errores <span>Platzi · 2022</span></li>
+                <li>Pensamiento Computacional con Python <span>Platzi · 2022</span></li>
+                <li>Introducción al Desarrollo Backend <span>Platzi · 2022</span></li>
+                <li>Curso Básico de Python <span>Platzi · 2022</span></li>
+                <li>API REST con Laravel <span>Platzi · 2022</span></li>
+                <li>PHP con Composer <span>Platzi · 2022</span></li>
+                <li>Programación Básica <span>Platzi · 2022</span></li>
+                <li>Introducción a Laravel 8 <span>Platzi · 2022</span></li>
+                <li>Introducción a Laravel <span>Platzi · 2022</span></li>
+                <li>Responsive Web Design <span>freeCodeCamp · 2021</span></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section contact" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <p class="section-kicker reveal">06 · Contacto</p>
+          <h2 id="contact-title" class="section-title contact-title reveal">¿Tienes un ERP que escalar o un producto que construir? <em>Hablemos.</em></h2>
+          <p class="muted reveal">Respondo personalmente. Cuéntame qué necesitas y te propongo el siguiente paso.</p>
+
+          <div class="contact-email reveal">
+            <a href="mailto:hidelmartinez21@gmail.com" class="email-link">hidelmartinez21@gmail.com</a>
+            <button type="button" class="icon-btn" id="copy-email" data-email="hidelmartinez21@gmail.com" aria-label="Copiar correo">
+              <svg class="ico ico-copy"><use href="#i-copy"/></svg>
+              <svg class="ico ico-check"><use href="#i-check"/></svg>
+            </button>
+          </div>
+
+          <p class="contact-phone reveal">
+            <svg class="ico"><use href="#i-whatsapp"/></svg>
+            <a href="tel:+584224037878">+58 422-403 7878</a>
+            <span class="muted">· WhatsApp y llamadas</span>
+          </p>
+
+          <ul class="contact-links reveal">
+            <li><a class="btn btn-ghost" href="https://wa.me/584224037878" target="_blank" rel="noopener"><svg class="ico"><use href="#i-whatsapp"/></svg> WhatsApp</a></li>
+            <li><a class="btn btn-ghost" href="https://www.linkedin.com/in/hidelberg-martinez-espitia/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-linkedin"/></svg> LinkedIn</a></li>
+            <li><a class="btn btn-ghost" href="https://github.com/hidel21" target="_blank" rel="noopener"><svg class="ico"><use href="#i-github"/></svg> GitHub</a></li>
+            <li><a class="btn btn-ghost" href="https://codepen.io/hidelberg5" target="_blank" rel="noopener"><svg class="ico"><use href="#i-codepen"/></svg> CodePen</a></li>
+          </ul>
+        </div>
+
+        <form class="contact-form card reveal" id="contact-form" novalidate>
+          <div class="field">
+            <label for="cf-name">Nombre</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cf-topic">Tema</label>
+            <select id="cf-topic" name="topic">
+              <option>Desarrollo / migración Odoo</option>
+              <option>Localización fiscal venezolana</option>
+              <option>Integración / API</option>
+              <option>Aplicación web o PWA</option>
+              <option>Oportunidad laboral</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-msg">Mensaje</label>
+            <textarea id="cf-msg" name="message" rows="5" required></textarea>
+          </div>
+          <p class="form-error" id="cf-error" role="alert" hidden>Completa tu nombre y el mensaje.</p>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" data-channel="email"><svg class="ico"><use href="#i-send"/></svg> Enviar por correo</button>
+            <button class="btn btn-ghost" type="submit" data-channel="whatsapp"><svg class="ico"><use href="#i-whatsapp"/></svg> Por WhatsApp</button>
+          </div>
+          <p class="form-note">Se abrirá tu app de correo o WhatsApp con el mensaje listo para enviar.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand"><img src="assets/img/brand/hideldev-icon.svg" width="20" height="20" alt=""> © <span id="year">2026</span> Hideldev · Hidelberg Martínez Espitia</p>
+      <p class="muted">Hecho a mano con HTML, CSS y JavaScript · <a href="#top">Volver arriba ↑</a></p>
+    </div>
+  </footer>
+
+  <!-- Paleta de comandos -->
+  <dialog class="palette" id="palette" aria-label="Buscador de comandos">
+    <div class="palette-box">
+      <div class="palette-search">
+        <svg class="ico"><use href="#i-search"/></svg>
+        <input type="text" id="palette-input" placeholder="Busca una sección o acción…" autocomplete="off"
+               role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+        <kbd>Esc</kbd>
+      </div>
+      <ul class="palette-list" id="palette-list" role="listbox" aria-label="Resultados"></ul>
+      <div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>Enter</kbd> abrir</span></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

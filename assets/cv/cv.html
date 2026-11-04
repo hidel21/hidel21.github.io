@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=block" rel="stylesheet">
+<title>CV · Hidelberg Martínez Espitia · Hideldev</title>
+<style>
+  @page { size: A4; margin: 13mm 14mm 12mm; }
+  :root { --ink: #14151b; --ink-2: #44475a; --ink-3: #6b6e80; --line: #e3e1da; --violet: #6d3fe0; --teal: #0b7a6c; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Geist", sans-serif; font-size: 9.3pt; line-height: 1.42; color: var(--ink-2); }
+  ul { list-style: none; }
+  a { color: inherit; text-decoration: none; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  /* Encabezado */
+  .head { display: flex; gap: 14px; align-items: center; padding-bottom: 12px; border-bottom: 1.5px solid var(--ink); }
+  .logo { width: 50px; height: 50px; flex: none; }
+  .who { flex: 1; }
+  h1 { font-size: 21pt; line-height: 1.05; letter-spacing: -.03em; color: var(--ink); font-weight: 600; }
+  .role { margin-top: 3px; font-size: 10.5pt; font-weight: 500; color: var(--violet); letter-spacing: -.01em; }
+  .contact { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: 8.4pt; color: var(--ink-2); }
+  .contact span::before { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--teal); margin-right: 6px; vertical-align: 2px; }
+  .brand { text-align: right; font-family: "Geist Mono", monospace; font-size: 7.6pt; color: var(--ink-3); line-height: 1.5; align-self: flex-start; }
+  .brand b { display: block; font-family: "Geist", sans-serif; font-size: 11pt; color: var(--ink); letter-spacing: -.03em; font-weight: 600; }
+  .brand b i { font-style: normal; color: var(--violet); }
+
+  /* Secciones */
+  section { margin-top: 13px; }
+  h2 {
+    display: flex; align-items: center; gap: 8px;
+    font-family: "Geist Mono", monospace; font-size: 8pt; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--violet); margin-bottom: 7px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .summary { font-size: 9.5pt; color: var(--ink-2); }
+  .summary p + p { margin-top: 5px; }
+
+  /* Experiencia */
+  .job { break-inside: avoid; padding: 6px 0 7px; }
+  .job + .job { border-top: 1px dashed var(--line); }
+  .job-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .job h3 { font-size: 10pt; font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
+  .job h3 span { font-weight: 500; color: var(--violet); }
+  .when { font-family: "Geist Mono", monospace; font-size: 7.9pt; color: var(--ink-3); white-space: nowrap; }
+  .now { color: var(--teal); font-weight: 500; }
+  .job ul { margin-top: 3px; }
+  .job li { position: relative; padding-left: 12px; margin-top: 2px; }
+  .job li::before { content: ""; position: absolute; left: 1px; top: .58em; width: 4px; height: 4px; transform: rotate(45deg); background: var(--teal); }
+  .stack { margin-top: 3px; font-family: "Geist Mono", monospace; font-size: 7.5pt; color: var(--ink-3); }
+  .prev li { display: flex; justify-content: space-between; gap: 12px; padding: 2px 0 2px 12px; }
+
+  /* Proyectos */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 18px; }
+  .project { break-inside: avoid; }
+  .project h3 { font-size: 9.4pt; font-weight: 600; color: var(--ink); }
+  .project p { font-size: 8.6pt; }
+  .project .stack { margin-top: 1px; }
+
+  /* Cuadrícula final */
+  .cols { display: grid; grid-template-columns: 1.25fr 1fr; gap: 0 22px; }
+  .skills li { display: grid; grid-template-columns: 74px 1fr; gap: 8px; padding: 2.5px 0; }
+  .certs li { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; font-size: 8.7pt; }
+  .certs li span { font-family: "Geist Mono", monospace; font-size: 7.4pt; color: var(--ink-3); white-space: nowrap; }
+  .note { margin-top: 4px; font-size: 8pt; color: var(--ink-3); }
+  .avoid { break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<header class="head">
+  <svg class="logo" viewBox="0 0 512 512" aria-hidden="true">
+    <defs><linearGradient id="r" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient></defs>
+    <rect width="512" height="512" rx="116" fill="#0d0e14"/>
+    <rect x="8" y="8" width="496" height="496" rx="108" fill="none" stroke="url(#r)" stroke-width="16"/>
+    <path d="M128 128V384M128 270c0-46 34-80 76-80s76 34 76 80v114" fill="none" stroke="#fff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="330" y="372" width="84" height="40" rx="10" fill="#2dd4bf"/>
+  </svg>
+  <div class="who">
+    <h1>Hidelberg Martínez Espitia</h1>
+    <p class="role">Desarrollador Senior & Especialista Odoo · Arquitecto de Software</p>
+    <p class="contact">
+      <span>Aragua, Venezuela · Remoto</span>
+      <span><a href="tel:+584224037878">+58 422-403 7878</a></span>
+      <span><a href="mailto:hidelmartinez21@gmail.com">hidelmartinez21@gmail.com</a></span>
+      <span><a href="https://hidel21.github.io/">hidel21.github.io</a></span>
+      <span><a href="https://www.linkedin.com/in/hidelberg-martinez-espitia/">linkedin.com/in/hidelberg-martinez-espitia</a></span>
+      <span><a href="https://github.com/hidel21">github.com/hidel21</a></span>
+    </p>
+  </div>
+  <div class="brand"><b>hidel<i>dev</i></b>Odoo · Python · IA</div>
+</header>
+
+<section>
+  <h2>Perfil</h2>
+  <div class="summary">
+    <p>Desarrollador senior con <strong>6+ años</strong> construyendo software que conecta código con resultados de negocio: menos trabajo manual, datos confiables y sistemas que aguantan cuando la empresa crece. Especialista en <strong>Odoo ERP (v14–v19)</strong>: módulos a medida, migraciones entre versiones, reportes SQL avanzados y localización fiscal para <strong>Venezuela, Colombia y México</strong>. He sido responsable del ERP de un grupo de <strong>siete compañías en cinco países</strong>.</p>
+    <p>Integro APIs REST, webhooks y automatización con Python, y uso la IA y los LLMs como herramientas de ingeniería —no como muletas— para entregar más rápido código que reviso, entiendo y sostengo. Pienso como dueño de producto: entiendo finanzas, monetización y el «por qué» de cada requerimiento.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Experiencia</h2>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador Senior & Consultor Odoo <span>· Independiente</span></h3><span class="when now">Nov 2026 – Actualidad · Remoto</span></div>
+    <ul>
+      <li>Desarrollo de módulos Odoo v14–v19, migraciones, reportes SQL avanzados y localización fiscal para empresas que necesitan que su ERP acompañe el crecimiento.</li>
+      <li>Integraciones (API REST, webhooks), automatización con Python y evaluación de modelos de lenguaje para casos de uso en producción.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador Odoo <span>· MyIntelli</span></h3><span class="when">Ago 2026 – Oct 2026 · Híbrido</span></div>
+    <ul>
+      <li>Responsable del ERP del grupo: <strong>Odoo 18 Enterprise para siete compañías en cinco países</strong>.</li>
+      <li>Módulos propios en Python y XML: motor de comisiones multimoneda, nómina electrónica DIAN e integraciones de facturación electrónica para Colombia, Venezuela y México.</li>
+      <li>Despliegue en producción y saneamiento de datos contables.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador Senior Odoo <span>· INGEINT C.A.</span></h3><span class="when">Nov 2025 – Jul 2026 · Híbrido</span></div>
+    <ul>
+      <li>Diseñé y desarrollé módulos personalizados en Odoo v18 y v19 para clientes corporativos, optimizando flujos de trabajo críticos.</li>
+      <li>Encabecé las localizaciones venezolanas de contabilidad, nómina y facturación electrónica, con 100% de apego a la normativa tributaria.</li>
+      <li>Refactoricé código heredado en Python y XML/QWeb, <strong>reduciendo los errores del sistema en un 35%</strong> y acelerando las consultas a la base de datos.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador Odoo <span>· Binaural C.A.</span></h3><span class="when">Jul 2025 – Nov 2025 · Presencial</span></div>
+    <ul>
+      <li>Lideré la migración de módulos core (Nómina, Contabilidad y Presupuesto) de <strong>Odoo v14 a v18</strong>, preservando la integridad de los datos sin interrupciones operativas.</li>
+      <li>Optimicé reglas salariales, estructuras, contratos y gestión del tiempo de personal con Python/PostgreSQL y QWeb/XML bajo Scrum.</li>
+      <li>Automaticé retenciones y cálculos fiscales, <strong>reduciendo el tiempo de procesamiento mensual en un 40%</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador de Software Sénior <span>· Bera Motorcycles</span></h3><span class="when">Sep 2024 – Jul 2025</span></div>
+    <ul>
+      <li>Responsable del desarrollo, optimización y automatización del ERP en Odoo 16, con módulos nuevos para manufactura, inventario y ventas.</li>
+      <li>Diseñé APIs REST en Odoo para conectar el ERP con aplicaciones externas y plataformas de e-commerce.</li>
+      <li>Como cabeza de grupo del departamento de desarrollo, coordiné al equipo de programadores.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador Web & Líder SEO <span>· Taranis Galicia</span></h3><span class="when">Feb 2024 – Feb 2025 · Autónomo, remoto</span></div>
+    <ul>
+      <li>Desarrollé más de 10 sitios, tiendas WooCommerce y Shopify y plataformas de e-learning, con un <strong>incremento sostenido del 30% en tráfico orgánico</strong>.</li>
+      <li>Coordiné equipos de desarrollo, marketing y diseño para la expansión en mercados de España y Europa.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador Web <span>· Navicu.com</span></h3><span class="when">Nov 2023 – Abr 2024 · Híbrido</span></div>
+    <ul>
+      <li>Reestructuré la arquitectura frontend integrando React, <strong>aumentando la velocidad web en un 40%</strong>.</li>
+      <li>Integré APIs de motores de búsqueda de viajes y reservas en tiempo real.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Desarrollador de IA y Automatización <span>· Wearecontent</span></h3><span class="when">Jun 2023 – Oct 2023 · Remoto</span></div>
+    <ul>
+      <li>Desarrollé herramientas de IA e implementé pipelines automatizados de datos y métricas, <strong>mejorando en un 35% la eficiencia</strong> de la recolección de información operativa.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-top"><h3>Experiencia previa</h3><span class="when">2020 – 2023</span></div>
+    <ul class="prev">
+      <li><span><strong>Kalstein France</strong> · Software Developer & Analista SEO — e-commerce y plataformas de realidad virtual</span><span class="when">Ene – May 2023</span></li>
+      <li><span><strong>Web Sell Corporation</strong> (Miami, EE. UU.) · Desarrollador Web — PHP y SEO</span><span class="when">Mar 2022 – Ene 2023</span></li>
+      <li><span><strong>YOU3DTOKEN</strong> · Desarrollador de Software (Node.js) y Jefe de Operaciones</span><span class="when">Mar 2020 – Mar 2022</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="avoid">
+  <h2>Proyectos destacados · github.com/hidel21</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>HubSpot → Odoo 18 Bridge</h3>
+      <p>Genera cotizaciones o facturas en Odoo cuando un negocio se gana en HubSpot. Firma HMAC-SHA256, anti-replay, cola con cron e idempotencia en dos capas.</p>
+      <p class="stack">Python · Odoo 18 · Webhooks · HubSpot API</p>
+    </div>
+    <div class="project">
+      <h3>Hato — gestión ganadera (PWA)</h3>
+      <p>Sistema mobile-first para administrador, veterinario y capataz en el campo, con roles y autenticación JWT.</p>
+      <p class="stack">React · Vite · Tailwind · FastAPI · PostgreSQL · Docker</p>
+    </div>
+    <div class="project">
+      <h3>Liquidación de comisiones y prestaciones</h3>
+      <p>Módulos de nómina en Odoo: circuito de pago de comisiones y traslado de provisiones (prima, cesantías, vacaciones) con conciliación.</p>
+      <p class="stack">Odoo · Python · Contabilidad · Tests</p>
+    </div>
+    <div class="project">
+      <h3>Sistema Marfil</h3>
+      <p>Inventario, ventas, cuotas, cobranza y reportes PDF que reemplazó un libro de Excel, con migración de datos y despliegue en contenedor.</p>
+      <p class="stack">Python · Streamlit · SQLAlchemy · PostgreSQL · Docker</p>
+    </div>
+  </div>
+</section>
+
+<div class="cols">
+  <section class="avoid">
+    <h2>Habilidades</h2>
+    <ul class="skills">
+      <li><strong>ERP</strong> Odoo v14–v19 (Community y Enterprise), ORM, XML/QWeb, migraciones</li>
+      <li><strong>Backend</strong> Python, Node.js, Express, FastAPI, Django, Laravel, PHP</li>
+      <li><strong>Frontend</strong> React, JavaScript ES6+, Vue.js, Tailwind CSS, PWA, React Native</li>
+      <li><strong>Datos</strong> PostgreSQL (SQL avanzado), MySQL, MongoDB, Elasticsearch, Pandas</li>
+      <li><strong>Integración</strong> API REST, webhooks, HubSpot, Search Console, JWT</li>
+      <li><strong>IA</strong> LLMs, evaluación de modelos, agentes, prompt engineering, Zapier</li>
+      <li><strong>DevOps</strong> Docker, Git, Jenkins, CI/CD, microservicios</li>
+      <li><strong>Web & SEO</strong> WordPress, JetEngine, WooCommerce, Shopify, Core Web Vitals</li>
+      <li><strong>Métodos</strong> Scrum, liderazgo técnico</li>
+    </ul>
+  </section>
+
+  <div>
+    <section class="avoid">
+      <h2>Educación</h2>
+      <p><strong>TSU en Informática</strong><br>Instituto Universitario de Tecnología Antonio Ricaurte · 2019 – 2022</p>
+    </section>
+    <section class="avoid">
+      <h2>Idiomas</h2>
+      <p><strong>Español</strong> nativo · <strong>Inglés</strong> B2 (EF SET Upper Intermediate)</p>
+    </section>
+    <section class="avoid">
+      <h2>Certificaciones</h2>
+      <ul class="certs">
+        <li>EF SET English Certificate — B2 <span>EF · 2025</span></li>
+        <li>Ciberseguridad y Privacidad para Empresas <span>Platzi · 2024</span></li>
+        <li>Introducción a Elasticsearch <span>Platzi · 2023</span></li>
+        <li>Data Analysis with Python <span>freeCodeCamp · 2023</span></li>
+        <li>Inbound Marketing <span>HubSpot · 2023</span></li>
+        <li>Prompt Engineering con ChatGPT <span>Platzi · 2023</span></li>
+        <li>SEO y Estrategia de Contenidos <span>Platzi · 2022</span></li>
+        <li>API REST con Laravel y PHP <span>Platzi · 2022</span></li>
+      </ul>
+      <p class="note">+11 certificaciones más en LinkedIn.</p>
+    </section>
+  </div>
+</div>
+
+</body>
+</html>

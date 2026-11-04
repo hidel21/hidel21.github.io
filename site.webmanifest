@@ -1,0 +1,15 @@
+{
+  "name": "Hideldev · Hidelberg Martínez",
+  "short_name": "Hideldev",
+  "description": "Desarrollador senior y especialista Odoo. Convierto procesos manuales en sistemas que escalan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0b10",
+  "theme_color": "#0a0b10",
+  "icons": [
+    { "src": "assets/img/brand/hideldev-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/brand/hideldev-icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/img/brand/hideldev-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
