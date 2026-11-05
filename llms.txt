@@ -14,6 +14,15 @@ Datos clave:
 - [Facturación electrónica en Odoo](https://hidel21.github.io/facturacion-electronica-odoo/): localización fiscal para Venezuela, Colombia y México, nómina electrónica.
 - [Migración de Odoo](https://hidel21.github.io/migracion-odoo/): actualización de versiones antiguas a recientes sin detener la operación.
 
+## Blog
+- [Migrar módulos de Odoo 16 a 18: los cambios que rompen tu código](https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/): attrs/states, name_get, vistas list, aggregator, chatter y scripts de migración.
+
+## English
+- [Portfolio (English)](https://hidel21.github.io/en/)
+- [Freelance Odoo developer](https://hidel21.github.io/en/odoo-developer/)
+- [Odoo e-invoicing for Latin America](https://hidel21.github.io/en/odoo-e-invoicing-latam/)
+- [Odoo migration](https://hidel21.github.io/en/odoo-migration/)
+
 ## Perfil
 - [Portafolio, experiencia y proyectos](https://hidel21.github.io/)
 - [CV en PDF](https://hidel21.github.io/assets/cv/Hidelberg-Martinez-CV.pdf)

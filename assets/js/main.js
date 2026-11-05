@@ -11,7 +11,12 @@
   var finePointer = window.matchMedia('(pointer: fine)').matches;
   var EMAIL = 'hidelmartinez21@gmail.com';
   var WHATSAPP = '584224037878';
-  var CV_URL = 'assets/cv/Hidelberg-Martinez-CV.pdf';
+  var CV_URL = '/assets/cv/Hidelberg-Martinez-CV.pdf';
+
+  // Idioma de la página (es por defecto, en para /en/)
+  var EN = (document.documentElement.lang || 'es').slice(0, 2) === 'en';
+  var tr = function (es, en) { return EN ? en : es; };
+  var HOME = EN ? '/en/' : '/';
 
   var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
@@ -39,7 +44,7 @@
   var themeBtn = $('#theme-toggle');
   function applyTheme(t, persist) {
     root.setAttribute('data-theme', t);
-    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'dark' ? tr('Cambiar a tema claro', 'Switch to light theme') : tr('Cambiar a tema oscuro', 'Switch to dark theme'));
     if (persist) store('set', 'theme', t);
   }
   function toggleTheme() {
@@ -71,7 +76,7 @@
   var nav = $('#main-nav');
   function setMenu(open) {
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menuBtn.setAttribute('aria-label', open ? tr('Cerrar menú', 'Close menu') : tr('Abrir menú', 'Open menu'));
     nav.classList.toggle('is-open', open);
   }
   menuBtn.addEventListener('click', function () {
@@ -149,7 +154,7 @@
   /* ---------- Palabra rotativa del titular ---------- */
   var rotWord = $('.rotator-word');
   if (rotWord && !reducedMotion) {
-    var words = ['escalan.', 'ahorran horas.', 'reducen errores.', 'crecen contigo.'];
+    var words = EN ? ['scale.', 'save hours.', 'cut errors.', 'grow with you.'] : ['escalan.', 'ahorran horas.', 'reducen errores.', 'crecen contigo.'];
     var w = 0;
     setInterval(function () {
       if (document.hidden) return;
@@ -199,7 +204,7 @@
   var SNIPPETS = [
     {
       lang: 'py',
-      foot: 'Odoo 18 · Python 3.11 · Webhook HubSpot',
+      foot: 'Odoo 18 · Python 3.11 · ' + tr('Webhook HubSpot', 'HubSpot webhook'),
       code: [
         "@http.route('/hubspot/webhook/deal', type='http',",
         "            auth='public', csrf=False)",
@@ -214,7 +219,7 @@
     },
     {
       lang: 'py',
-      foot: 'Odoo 19 · Nómina · Liquidación de comisiones',
+      foot: tr('Odoo 19 · Nómina · Liquidación de comisiones', 'Odoo 19 · Payroll · Commission settlement'),
       code: [
         'class HrPayslip(models.Model):',
         "    _inherit = 'hr.payslip'",
@@ -380,7 +385,7 @@
       c.classList.toggle('is-active', on);
       c.setAttribute('aria-pressed', String(on));
     });
-    if (filterStatus) filterStatus.textContent = shown + (shown === 1 ? ' proyecto' : ' proyectos') + ' mostrados';
+    if (filterStatus) filterStatus.textContent = shown + (EN ? (shown === 1 ? ' project shown' : ' projects shown') : (shown === 1 ? ' proyecto mostrado' : ' proyectos mostrados'));
   }
   projects.forEach(function (p) { if (p.classList.contains('featured')) p.setAttribute('data-featured', ''); });
   chips.forEach(function (c) {
@@ -399,14 +404,14 @@
     var diff = (new Date(iso) - Date.now()) / 1000;
     var units = [['year', 31536000], ['month', 2592000], ['week', 604800], ['day', 86400], ['hour', 3600], ['minute', 60]];
     try {
-      var rtf = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
+      var rtf = new Intl.RelativeTimeFormat(EN ? 'en' : 'es', { numeric: 'auto' });
       for (var i = 0; i < units.length; i++) {
         if (Math.abs(diff) >= units[i][1] || i === units.length - 1) {
           return rtf.format(Math.round(diff / units[i][1]), units[i][0]);
         }
       }
     } catch (e) { /* Intl no disponible */ }
-    return new Date(iso).toLocaleDateString('es');
+    return new Date(iso).toLocaleDateString(EN ? 'en' : 'es');
   }
 
   function renderGitHub(repos) {
@@ -438,7 +443,7 @@
         meta.appendChild(lang);
       }
       var when = document.createElement('span');
-      when.textContent = 'Actualizado ' + relTime(r.pushed_at);
+      when.textContent = tr('Actualizado ', 'Updated ') + relTime(r.pushed_at);
       meta.appendChild(when);
       a.appendChild(name);
       a.appendChild(meta);
@@ -481,7 +486,7 @@
       legend.appendChild(li);
       label.push(e[0] + ' ' + pct + '%');
     });
-    bar.setAttribute('aria-label', 'Lenguajes en repositorios propios: ' + label.join(', '));
+    bar.setAttribute('aria-label', tr('Lenguajes en repositorios propios: ', 'Languages in own repositories: ') + label.join(', '));
     $('#gh-langs').hidden = false;
   }
 
@@ -508,7 +513,7 @@
         list.innerHTML = '';
         var li = document.createElement('li');
         li.className = 'muted';
-        li.textContent = 'No se pudo cargar la actividad en este momento. Puedes verla directamente en GitHub.';
+        li.textContent = tr('No se pudo cargar la actividad en este momento. Puedes verla directamente en GitHub.', 'Activity could not be loaded right now. You can see it directly on GitHub.');
         list.appendChild(li);
       });
   }
@@ -528,7 +533,7 @@
   /* ---------- Copiar correo ---------- */
   function copyEmail() {
     var done = function () {
-      toast('Correo copiado al portapapeles');
+      toast(tr('Correo copiado al portapapeles', 'Email copied to clipboard'));
       var btn = $('#copy-email');
       if (btn) {
         btn.classList.add('is-copied');
@@ -569,13 +574,13 @@
       }
       err.hidden = true;
       if (channel === 'whatsapp') {
-        var text = 'Hola Hidelberg, soy ' + name + '.\n*' + topic + '*\n\n' + msg;
+        var text = tr('Hola Hidelberg, soy ', 'Hi Hidelberg, I am ') + name + '.\n*' + topic + '*\n\n' + msg;
         window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
       } else {
-        var subject = '[Portafolio] ' + topic + ' — ' + name;
+        var subject = tr('[Portafolio] ', '[Portfolio] ') + topic + ' — ' + name;
         window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg + '\n\n— ' + name);
       }
-      toast('Abriendo ' + (channel === 'whatsapp' ? 'WhatsApp' : 'tu correo') + '…');
+      toast(tr('Abriendo ', 'Opening ') + (channel === 'whatsapp' ? 'WhatsApp' : tr('tu correo', 'your email')) + '…');
     });
   }
 
@@ -588,31 +593,34 @@
     return function () {
       var el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
-      else window.location.href = '/' + hash;
+      else window.location.href = HOME + hash;
     };
   };
   var page = function (url) { return function () { window.location.href = url; }; };
   var open = function (url) { return function () { window.open(url, '_blank', 'noopener'); }; };
+  var SEC = tr('Sección', 'Section'), ACT = tr('Acción', 'Action'), LNK = tr('Enlace', 'Link'), PAG = tr('Página', 'Page');
   var COMMANDS = [
-    { label: 'Inicio', icon: 'i-arrow', hint: 'Sección', run: go('#top') },
-    { label: 'Sobre mí', icon: 'i-arrow', hint: 'Sección', run: go('#sobre-mi') },
-    { label: 'Servicios', icon: 'i-arrow', hint: 'Sección', run: go('#servicios') },
-    { label: 'Experiencia', icon: 'i-arrow', hint: 'Sección', run: go('#experiencia') },
-    { label: 'Proyectos', icon: 'i-arrow', hint: 'Sección', run: go('#proyectos') },
-    { label: 'Proyectos de Odoo & ERP', icon: 'i-erp', hint: 'Filtro', run: function () { if (chips.length) { applyFilter('odoo'); go('#proyectos')(); } else { window.location.href = '/#proyectos'; } } },
-    { label: 'Servicio: Desarrollador Odoo freelance', icon: 'i-erp', hint: 'Página', run: page('/desarrollador-odoo/') },
-    { label: 'Servicio: Facturación electrónica en Odoo', icon: 'i-receipt', hint: 'Página', run: page('/facturacion-electronica-odoo/') },
-    { label: 'Servicio: Migración de Odoo', icon: 'i-layers', hint: 'Página', run: page('/migracion-odoo/') },
-    { label: 'Preguntas frecuentes', icon: 'i-search', hint: 'Sección', run: go('#preguntas') },
-    { label: 'Stack y certificaciones', icon: 'i-arrow', hint: 'Sección', run: go('#stack') },
-    { label: 'Contacto', icon: 'i-send', hint: 'Sección', run: go('#contacto') },
-    { label: 'Descargar CV (PDF)', icon: 'i-download', hint: 'Acción', run: function () { var a = document.createElement('a'); a.href = CV_URL; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); } },
-    { label: 'Copiar correo electrónico', icon: 'i-copy', hint: 'Acción', run: copyEmail },
-    { label: 'Cambiar tema claro / oscuro', icon: 'i-sun', hint: 'Acción', run: toggleTheme },
-    { label: 'Abrir GitHub', icon: 'i-github', hint: 'Enlace', run: open('https://github.com/hidel21') },
-    { label: 'Abrir LinkedIn', icon: 'i-linkedin', hint: 'Enlace', run: open('https://www.linkedin.com/in/hidelberg-martinez-espitia/') },
-    { label: 'Escribir por WhatsApp', icon: 'i-whatsapp', hint: 'Enlace', run: open('https://wa.me/' + WHATSAPP) },
-    { label: 'Enviar correo', icon: 'i-mail', hint: 'Enlace', run: function () { window.location.href = 'mailto:' + EMAIL; } }
+    { label: tr('Inicio', 'Home'), icon: 'i-arrow', hint: SEC, run: go('#top') },
+    { label: tr('Sobre mí', 'About'), icon: 'i-arrow', hint: SEC, run: go('#sobre-mi') },
+    { label: tr('Servicios', 'Services'), icon: 'i-arrow', hint: SEC, run: go('#servicios') },
+    { label: tr('Experiencia', 'Experience'), icon: 'i-arrow', hint: SEC, run: go('#experiencia') },
+    { label: tr('Proyectos', 'Projects'), icon: 'i-arrow', hint: SEC, run: go('#proyectos') },
+    { label: tr('Proyectos de Odoo & ERP', 'Odoo & ERP projects'), icon: 'i-erp', hint: tr('Filtro', 'Filter'), run: function () { if (chips.length) { applyFilter('odoo'); go('#proyectos')(); } else { window.location.href = HOME + '#proyectos'; } } },
+    { label: tr('Servicio: Desarrollador Odoo freelance', 'Service: Freelance Odoo developer'), icon: 'i-erp', hint: PAG, run: page(tr('/desarrollador-odoo/', '/en/odoo-developer/')) },
+    { label: tr('Servicio: Facturación electrónica en Odoo', 'Service: Odoo e-invoicing for Latin America'), icon: 'i-receipt', hint: PAG, run: page(tr('/facturacion-electronica-odoo/', '/en/odoo-e-invoicing-latam/')) },
+    { label: tr('Servicio: Migración de Odoo', 'Service: Odoo migration'), icon: 'i-layers', hint: PAG, run: page(tr('/migracion-odoo/', '/en/odoo-migration/')) },
+    { label: tr('Blog: artículos técnicos', 'Blog (Spanish)'), icon: 'i-code', hint: PAG, run: page('/blog/') },
+    { label: tr('Preguntas frecuentes', 'FAQ'), icon: 'i-search', hint: SEC, run: go('#preguntas') },
+    { label: tr('Stack y certificaciones', 'Stack & certifications'), icon: 'i-arrow', hint: SEC, run: go('#stack') },
+    { label: tr('Contacto', 'Contact'), icon: 'i-send', hint: SEC, run: go('#contacto') },
+    { label: tr('Descargar CV (PDF)', 'Download CV (PDF, Spanish)'), icon: 'i-download', hint: ACT, run: function () { var a = document.createElement('a'); a.href = CV_URL; a.download = ''; document.body.appendChild(a); a.click(); a.remove(); } },
+    { label: tr('Copiar correo electrónico', 'Copy email address'), icon: 'i-copy', hint: ACT, run: copyEmail },
+    { label: tr('Cambiar tema claro / oscuro', 'Toggle light / dark theme'), icon: 'i-sun', hint: ACT, run: toggleTheme },
+    { label: tr('Ver el sitio en inglés', 'Ver el sitio en español'), icon: 'i-globe', hint: tr('Idioma', 'Language'), run: page(tr('/en/', '/')) },
+    { label: tr('Abrir GitHub', 'Open GitHub'), icon: 'i-github', hint: LNK, run: open('https://github.com/hidel21') },
+    { label: tr('Abrir LinkedIn', 'Open LinkedIn'), icon: 'i-linkedin', hint: LNK, run: open('https://www.linkedin.com/in/hidelberg-martinez-espitia/') },
+    { label: tr('Escribir por WhatsApp', 'Message on WhatsApp'), icon: 'i-whatsapp', hint: LNK, run: open('https://wa.me/' + WHATSAPP) },
+    { label: tr('Enviar correo', 'Send an email'), icon: 'i-mail', hint: LNK, run: function () { window.location.href = 'mailto:' + EMAIL; } }
   ];
   var filtered = COMMANDS;
   var activeIdx = 0;
@@ -625,7 +633,7 @@
     activeIdx = Math.min(activeIdx, Math.max(filtered.length - 1, 0));
     pList.innerHTML = '';
     if (!filtered.length) {
-      pList.innerHTML = '<li class="palette-empty" role="presentation">Sin resultados</li>';
+      pList.innerHTML = '<li class="palette-empty" role="presentation">' + tr('Sin resultados', 'No results') + '</li>';
       pInput.removeAttribute('aria-activedescendant');
       return;
     }

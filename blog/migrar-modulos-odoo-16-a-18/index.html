@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Migrar módulos de Odoo 16 a 18: cambios que rompen tu código</title>
+  <meta name="description" content="Guía práctica para migrar módulos propios de Odoo 16 a 18: attrs y states, name_get, vistas list, aggregator, chatter y scripts de migración.">
+  <meta name="author" content="Hidelberg Martínez Espitia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#0a0b10" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/">
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-11-04">
+  <meta property="article:author" content="https://hidel21.github.io/">
+  <meta property="og:locale" content="es_VE">
+  <meta property="og:url" content="https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/">
+  <meta property="og:site_name" content="Hideldev">
+  <meta property="og:title" content="Migrar módulos de Odoo 16 a 18: cambios que rompen tu código">
+  <meta property="og:description" content="Guía práctica para migrar módulos propios de Odoo 16 a 18: attrs y states, name_get, vistas list, aggregator, chatter y scripts de migración.">
+  <meta property="og:image" content="https://hidel21.github.io/assets/img/brand/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Hidelberg21">
+  <meta name="twitter:image" content="https://hidel21.github.io/assets/img/brand/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/#article",
+      "headline": "Migrar módulos de Odoo 16 a 18: los cambios que rompen tu código",
+      "description": "Guía práctica para migrar módulos propios de Odoo 16 a 18: attrs y states, name_get, vistas list, aggregator, chatter y scripts de migración.",
+      "url": "https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/",
+      "inLanguage": "es",
+      "datePublished": "2026-11-04",
+      "dateModified": "2026-11-04",
+      "author": {
+        "@type": "Person",
+        "@id": "https://hidel21.github.io/#person",
+        "name": "Hidelberg Martínez Espitia",
+        "url": "https://hidel21.github.io/",
+        "sameAs": [
+          "https://www.linkedin.com/in/hidelberg-martinez-espitia/",
+          "https://github.com/hidel21"
+        ]
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "https://hidel21.github.io/#person",
+        "name": "Hidelberg Martínez Espitia",
+        "url": "https://hidel21.github.io/",
+        "sameAs": [
+          "https://www.linkedin.com/in/hidelberg-martinez-espitia/",
+          "https://github.com/hidel21"
+        ]
+      },
+      "image": "https://hidel21.github.io/assets/img/brand/og-image.jpg",
+      "mainEntityOfPage": "https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/",
+      "about": [
+        "Odoo",
+        "Migración de Odoo",
+        "Odoo 17",
+        "Odoo 18",
+        "Python"
+      ],
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://hidel21.github.io/blog/#blog",
+        "name": "Blog de Hideldev",
+        "url": "https://hidel21.github.io/blog/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://hidel21.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://hidel21.github.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Migrar módulos de Odoo 16 a 18",
+          "item": "https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Puedo migrar directamente de Odoo 16 a Odoo 18?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los datos sí, con el servicio de actualización de Odoo (Enterprise); con OpenUpgrade (Community) se avanza versión por versión. El código propio debe incorporar los cambios de la 17 y de la 18 a la vez, que son justamente los de esta guía."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es lo que más se rompe al migrar un módulo de Odoo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las vistas: attrs y states en Odoo 17, y las vistas tree y sus xpath heredados en Odoo 18. Después, el JavaScript heredado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo evito perder datos al renombrar un campo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con un script pre-migrate.py que renombre la columna antes de que Odoo actualice el esquema, dentro de la carpeta migrations/ con la versión nueva del módulo."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <!-- Sprite de iconos -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="hd-ring" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#2dd4bf"/></linearGradient>
+      <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.52-.07-.15-.67-1.62-.91-2.21-.25-.58-.49-.5-.67-.51h-.57c-.2 0-.52.08-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.37l-.36-.22-3.74.99 1-3.65-.24-.38a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 21h14"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-erp" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+      <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7-4.7-1.8 4.7-1.8z"/><path d="m19 15 .8 2.2 2.2.8-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2L3 9.6l6.2-.9z"/></symbol>
+      <symbol id="i-repo" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 8 5-3 5 3-1.5-8"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-codepen" viewBox="0 0 24 24"><path d="m12 2 10 6.5v7L12 22 2 15.5v-7z"/><path d="M12 22v-6.5M22 8.5l-10 7-10-7M2 15.5l10-7 10 7M12 2v6.5"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Hideldev — inicio">
+        <svg class="brand-mark" viewBox="0 0 512 512" aria-hidden="true">
+          <rect width="512" height="512" rx="116" fill="#0d0e14"/>
+          <rect x="8" y="8" width="496" height="496" rx="108" fill="none" stroke="url(#hd-ring)" stroke-width="16"/>
+          <path d="M128 128V384M128 270c0-46 34-80 76-80s76 34 76 80v114" fill="none" stroke="#fff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect class="brand-cursor" x="330" y="372" width="84" height="40" rx="10" fill="#2dd4bf"/>
+        </svg>
+        <span class="brand-text">hidel<span class="brand-dev">dev</span></span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="/#sobre-mi">Sobre mí</a></li>
+          <li><a href="/#servicios">Servicios</a></li>
+          <li><a href="/#experiencia">Experiencia</a></li>
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li><a href="/#stack">Stack</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn cmdk-trigger" type="button" data-open-palette aria-label="Abrir buscador de comandos (Ctrl + K)">
+          <svg class="ico"><use href="#i-search"/></svg>
+          <kbd class="kbd-hint" aria-hidden="true">Ctrl K</kbd>
+        </button>
+        <a class="icon-btn lang-switch" href="/en/" hreflang="en" lang="en" aria-label="English version">EN</a>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Cambiar a tema claro">
+          <svg class="ico ico-sun"><use href="#i-sun"/></svg>
+          <svg class="ico ico-moon"><use href="#i-moon"/></svg>
+        </button>
+        <a class="btn btn-primary btn-sm header-cta" href="/#contacto">Hablemos</a>
+        <button class="icon-btn menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+          <svg class="ico ico-menu"><use href="#i-menu"/></svg>
+          <svg class="ico ico-close"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="grid-bg"></div>
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+      </div>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Migas de pan">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li aria-current="page">Migrar módulos de Odoo 16 a 18</li>
+          </ol>
+        </nav>
+        <p class="section-kicker" style="margin-top:24px">Guía técnica · Odoo 17 y 18</p>
+        <h1 id="page-title" class="page-title" style="max-width:22ch">Migrar módulos de Odoo 16 a 18: los cambios que <em>rompen</em> tu código</h1>
+        <p class="page-lead">Los datos se migran con herramientas; el código propio, a mano. Estos son los cambios de Odoo 17 y 18 que más módulos personalizados rompen, con el antes y el después de cada uno.</p>
+        <p class="muted" style="margin-top:16px;font-size:14px">Por <a href="/">Hidelberg Martínez</a> · <time datetime="2026-11-04">4 de noviembre de 2026</time> · 8 min de lectura</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container article-layout">
+        <article class="article">
+          <div class="answer-box"><p><strong>En resumen:</strong> al pasar un módulo de Odoo 16 a 18 hay que (1) reemplazar <code>attrs</code> y <code>states</code> por expresiones en <code>invisible</code>, <code>readonly</code> y <code>required</code>; (2) cambiar <code>name_get</code> por <code>_compute_display_name</code>; (3) renombrar las vistas <code>tree</code> a <code>list</code>, incluidos los <code>xpath</code>; (4) usar <code>aggregator</code> en lugar de <code>group_operator</code>; (5) reemplazar el bloque del chatter por <code>&lt;chatter/&gt;</code>; y (6) escribir scripts de migración para los campos renombrados.</p></div>
+
+            <h2 id="vistas">1. Vistas: adiós a <code>attrs</code> y <code>states</code> (Odoo 17)</h2>
+            <p>Es el cambio que más vistas rompe. Desde Odoo 17, los dominios dentro de <code>attrs</code> y el atributo <code>states</code> ya no se aceptan: la visibilidad y la obligatoriedad se escriben como expresiones de Python directamente en <code>invisible</code>, <code>readonly</code> y <code>required</code>.</p>
+            <span class="code-label">Odoo 16</span>
+            <pre><code class="language-xml">&lt;field name="partner_id"
+       attrs="{'invisible': [('state', '!=', 'draft')],
+               'required': [('move_type', '=', 'out_invoice')]}"/&gt;
+&lt;button name="action_confirm" type="object" states="draft"/&gt;</code></pre>
+            <span class="code-label">Odoo 17 / 18</span>
+            <pre><code class="language-xml">&lt;field name="partner_id"
+       invisible="state != 'draft'"
+       required="move_type == 'out_invoice'"/&gt;
+&lt;button name="action_confirm" type="object" invisible="state != 'draft'"/&gt;</code></pre>
+            <p>En listas, para ocultar la columna completa usa <code>column_invisible</code>. Un truco para la migración: busca en tu módulo <code>grep -rn "attrs=\|states=" views/</code> y convierte cada dominio a su expresión equivalente, cuidando que <code>|</code> y <code>&amp;</code> se traduzcan a <code>or</code> y <code>and</code>.</p>
+
+            <h2 id="display-name">2. <code>name_get</code> pasa a <code>_compute_display_name</code> (Odoo 17)</h2>
+            <p>Si tu modelo personalizaba cómo se muestra un registro en los campos relacionales, <code>name_get</code> dejó de ser el mecanismo. Ahora se calcula el campo <code>display_name</code>.</p>
+            <span class="code-label">Odoo 16</span>
+            <pre><code class="language-python">def name_get(self):
+    return [(rec.id, f"[{rec.code}] {rec.name}") for rec in self]</code></pre>
+            <span class="code-label">Odoo 17 / 18</span>
+            <pre><code class="language-python">@api.depends('code', 'name')
+def _compute_display_name(self):
+    for rec in self:
+        rec.display_name = f"[{rec.code}] {rec.name}"</code></pre>
+            <p>Si además querías buscar por código desde un campo Many2one, en lugar de sobrescribir <code>_name_search</code> basta con declarar <code>_rec_names_search = ['code', 'name']</code> en el modelo.</p>
+
+            <h2 id="list">3. Las vistas <code>tree</code> ahora son <code>list</code> (Odoo 18)</h2>
+            <p>Odoo 18 renombró el tipo de vista. Hay que actualizar la etiqueta raíz, los <code>view_mode</code> de las acciones y, muy importante, los <code>xpath</code> de las vistas heredadas.</p>
+            <span class="code-label">Odoo 16 / 17</span>
+            <pre><code class="language-xml">&lt;tree string="Comisiones"&gt;...&lt;/tree&gt;
+&lt;field name="view_mode"&gt;tree,form&lt;/field&gt;
+&lt;xpath expr="//tree/field[@name='amount']" position="after"&gt;</code></pre>
+            <span class="code-label">Odoo 18</span>
+            <pre><code class="language-xml">&lt;list string="Comisiones"&gt;...&lt;/list&gt;
+&lt;field name="view_mode"&gt;list,form&lt;/field&gt;
+&lt;xpath expr="//list/field[@name='amount']" position="after"&gt;</code></pre>
+            <p>Los <code>xpath</code> heredados son los que más fallan en silencio: la instalación se detiene con un error de «elemento no encontrado». Revísalos todos antes de actualizar.</p>
+
+            <h2 id="aggregator">4. <code>group_operator</code> pasa a <code>aggregator</code> (Odoo 18)</h2>
+            <p>El parámetro que define cómo se agrupa un campo numérico en listas y tablas dinámicas cambió de nombre. El nombre viejo genera advertencias de obsolescencia.</p>
+            <span class="code-label">Odoo 16 / 17</span>
+            <pre><code class="language-python">amount = fields.Monetary(group_operator="sum")</code></pre>
+            <span class="code-label">Odoo 18</span>
+            <pre><code class="language-python">amount = fields.Monetary(aggregator="sum")</code></pre>
+
+            <h2 id="chatter">5. El chatter se simplifica (Odoo 18)</h2>
+            <p>En los formularios, el bloque del chatter con sus tres campos se reemplaza por una sola etiqueta.</p>
+            <span class="code-label">Odoo 16 / 17</span>
+            <pre><code class="language-xml">&lt;div class="oe_chatter"&gt;
+    &lt;field name="message_follower_ids"/&gt;
+    &lt;field name="activity_ids"/&gt;
+    &lt;field name="message_ids"/&gt;
+&lt;/div&gt;</code></pre>
+            <span class="code-label">Odoo 18</span>
+            <pre><code class="language-xml">&lt;chatter/&gt;</code></pre>
+
+            <h2 id="javascript">6. JavaScript heredado</h2>
+            <p>Si tu módulo tiene JavaScript escrito con <code>odoo.define</code> o widgets del framework anterior, no basta con renombrar: hay que reescribirlo como módulos ES y componentes Owl. Es la parte más costosa de muchas migraciones, así que conviene estimarla por separado.</p>
+
+            <h2 id="datos">7. Scripts de migración de datos</h2>
+            <p>Cuando cambias el nombre de un campo o la estructura de un modelo propio, los datos existentes no se mueven solos. Odoo ejecuta los scripts que encuentre en una carpeta con la nueva versión del módulo, la misma que declaras en el <code>__manifest__.py</code>:</p>
+            <span class="code-label">Estructura</span>
+            <pre><code class="language-text">mi_modulo/
+├── __manifest__.py          # "version": "18.0.1.0.0"
+└── migrations/
+    └── 18.0.1.0.0/
+        ├── pre-migrate.py   # antes de actualizar el esquema
+        └── post-migrate.py  # después de actualizar el esquema</code></pre>
+            <span class="code-label">pre-migrate.py</span>
+            <pre><code class="language-python">def migrate(cr, version):
+    # Conserva los datos al renombrar un campo: commission_amount -&gt; amount
+    cr.execute("""
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'commission_line' AND column_name = 'commission_amount'
+    """)
+    if cr.fetchone():
+        cr.execute("ALTER TABLE commission_line RENAME COLUMN commission_amount TO amount")</code></pre>
+            <p>Sin este paso, Odoo crea la columna nueva vacía y la vieja queda huérfana: los datos «desaparecen» aunque sigan en la base.</p>
+
+            <h2 id="checklist">Lista de verificación antes de salir a producción</h2>
+            <ul>
+              <li>Todos los módulos propios instalan y actualizan sin errores sobre una copia de la base de producción.</li>
+              <li>Ninguna vista usa <code>attrs</code>, <code>states</code>, <code>tree</code> ni <code>group_operator</code>.</li>
+              <li>Los <code>xpath</code> heredados apuntan a elementos que existen en la versión destino.</li>
+              <li>Los campos renombrados tienen su script de migración y se verificaron con datos reales.</li>
+              <li>Los usuarios clave compararon cierres contables, nómina e informes contra la versión anterior.</li>
+              <li>Hay respaldo, ventana de corte acordada y plan de reversión.</li>
+            </ul>
+
+          <h2 id="preguntas">Preguntas frecuentes</h2>
+          <div class="faq">
+          <details>
+            <summary>¿Puedo migrar directamente de Odoo 16 a Odoo 18?</summary>
+            <div class="faq-a"><p>Los datos sí, con el servicio de actualización de Odoo (Enterprise); con OpenUpgrade (Community) se avanza versión por versión. El código propio debe incorporar los cambios de la 17 y de la 18 a la vez, que son justamente los de esta guía.</p></div>
+          </details>
+          <details>
+            <summary>¿Qué es lo que más se rompe al migrar un módulo de Odoo?</summary>
+            <div class="faq-a"><p>Las vistas: <code>attrs</code> y <code>states</code> en Odoo 17, y las vistas <code>tree</code> y sus <code>xpath</code> heredados en Odoo 18. Después, el JavaScript heredado.</p></div>
+          </details>
+          <details>
+            <summary>¿Cómo evito perder datos al renombrar un campo?</summary>
+            <div class="faq-a"><p>Con un script <code>pre-migrate.py</code> que renombre la columna antes de que Odoo actualice el esquema, dentro de la carpeta <code>migrations/</code> con la versión nueva del módulo.</p></div>
+          </details>
+          </div>
+
+          <div class="cta-band">
+            <h2>¿Tu migración tiene más de un par de módulos?</h2>
+            <p>Lideré la migración de Nómina, Contabilidad y Presupuesto de Odoo 14 a 18 sin detener la operación. Cuéntame qué versión tienes y te propongo un plan.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="https://wa.me/584224037878?text=Hola%20Hidelberg%2C%20le%C3%AD%20tu%20art%C3%ADculo%20sobre%20migrar%20m%C3%B3dulos%20de%20Odoo%2016%20a%2018%20y%20necesito%20ayuda%20con%20mi%20migraci%C3%B3n." target="_blank" rel="noopener"><svg class="ico"><use href="#i-whatsapp"/></svg> Escribir por WhatsApp</a>
+              <a class="btn btn-ghost" href="/migracion-odoo/">Ver el servicio de migración <svg class="ico"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+
+          <aside class="author card" aria-label="Sobre el autor">
+            <img src="/assets/img/hidelberg-400.jpg" width="72" height="72" alt="Hidelberg Martínez" loading="lazy">
+            <div>
+              <strong>Hidelberg Martínez Espitia · Hideldev</strong>
+              <p>Desarrollador Odoo senior y arquitecto de software con más de 6 años de experiencia. Fue responsable del ERP de un grupo de siete compañías en cinco países y lideró migraciones de Odoo 14 a 18.</p>
+              <p class="author-links"><a href="/">Portafolio</a><a href="https://www.linkedin.com/in/hidelberg-martinez-espitia/" rel="noopener" target="_blank">LinkedIn</a><a href="https://github.com/hidel21" rel="noopener" target="_blank">GitHub</a></p>
+            </div>
+          </aside>
+        </article>
+
+        <aside class="aside">
+          <nav class="card toc" aria-label="En este artículo">
+            <h2>En este artículo</h2>
+            <ol>
+              <li><a href="#vistas">1. Vistas: adiós a attrs y states (Odoo 17)</a></li>
+              <li><a href="#display-name">2. name_get pasa a _compute_display_name (Odoo 17)</a></li>
+              <li><a href="#list">3. Las vistas tree ahora son list (Odoo 18)</a></li>
+              <li><a href="#aggregator">4. group_operator pasa a aggregator (Odoo 18)</a></li>
+              <li><a href="#chatter">5. El chatter se simplifica (Odoo 18)</a></li>
+              <li><a href="#javascript">6. JavaScript heredado</a></li>
+              <li><a href="#datos">7. Scripts de migración de datos</a></li>
+              <li><a href="#checklist">Lista de verificación antes de salir a producción</a></li>
+              <li><a href="#preguntas">Preguntas frecuentes</a></li>
+            </ol>
+          </nav>
+          <div class="card cta-card">
+            <h2>¿Necesitas migrar tu Odoo?</h2>
+            <p>Respondo personalmente por WhatsApp o correo.</p>
+            <a class="btn btn-primary" href="https://wa.me/584224037878?text=Hola%20Hidelberg%2C%20le%C3%AD%20tu%20art%C3%ADculo%20sobre%20migrar%20m%C3%B3dulos%20de%20Odoo%2016%20a%2018%20y%20necesito%20ayuda%20con%20mi%20migraci%C3%B3n." target="_blank" rel="noopener"><svg class="ico"><use href="#i-whatsapp"/></svg> +58 422-403 7878</a>
+            <a class="btn btn-ghost" href="/migracion-odoo/">Servicio de migración</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand"><img src="/assets/img/brand/hideldev-icon.svg" width="20" height="20" alt=""> © <span id="year">2026</span> Hideldev · Hidelberg Martínez Espitia</p>
+      <nav class="footer-links" aria-label="Servicios">
+        <a href="/desarrollador-odoo/">Desarrollador Odoo</a>
+        <a href="/facturacion-electronica-odoo/">Facturación electrónica en Odoo</a>
+        <a href="/migracion-odoo/">Migración de Odoo</a>
+        <a href="/blog/">Blog</a>
+        <a href="/en/">English</a>
+        <a href="#top">Volver arriba ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Paleta de comandos -->
+  <dialog class="palette" id="palette" aria-label="Buscador de comandos">
+    <div class="palette-box">
+      <div class="palette-search">
+        <svg class="ico"><use href="#i-search"/></svg>
+        <input type="text" id="palette-input" placeholder="Busca una sección o acción…" autocomplete="off"
+               role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+        <kbd>Esc</kbd>
+      </div>
+      <ul class="palette-list" id="palette-list" role="listbox" aria-label="Resultados"></ul>
+      <div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>Enter</kbd> abrir</span></div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -18,6 +18,10 @@ Sitio estático sin dependencias ni paso de build, servido por GitHub Pages:
 ## SEO
 
 - Páginas de servicio con contenido propio: `/desarrollador-odoo/`, `/facturacion-electronica-odoo/` y `/migracion-odoo/`.
+- Versión en inglés en `/en/` (portada y tres servicios), enlazada con `hreflang` y un selector ES/EN en la cabecera.
+  El JavaScript detecta el idioma por `<html lang>` y traduce sus textos.
+- Blog en `/blog/`. Cada artículo nuevo: carpeta propia con `index.html`, entrada en `/blog/index.html`,
+  `sitemap.xml` y `llms.txt`.
 - Datos estructurados (JSON-LD): `ProfilePage` + `Person` + `FAQPage` en la portada; `Service` + `BreadcrumbList` + `FAQPage` en cada servicio.
 - `sitemap.xml`, `robots.txt` (permite buscadores y asistentes de IA) y `llms.txt` (resumen para modelos de lenguaje).
 - Al editar contenido, actualiza `lastmod` en `sitemap.xml` y la fecha «Actualizado el…» de la página.
