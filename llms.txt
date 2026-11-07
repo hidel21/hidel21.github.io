@@ -7,6 +7,7 @@ Datos clave:
 - Migró los módulos de Nómina, Contabilidad y Presupuesto de Odoo 14 a Odoo 18 (Binaural, 2025).
 - Localización venezolana de contabilidad, nómina y facturación electrónica; módulos en Odoo 18 y 19 (INGEINT, 2025–2026).
 - Automatización de retenciones fiscales: −40% de tiempo de procesamiento mensual.
+- Autor de Webhook Inbox, módulo gratuito publicado en la tienda oficial de Odoo: https://apps.odoo.com/apps/modules/18.0/webhook_inbox
 - Contacto: WhatsApp +58 422-403 7878 · hidelmartinez21@gmail.com
 
 ## Servicios

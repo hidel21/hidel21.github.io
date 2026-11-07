@@ -526,7 +526,7 @@ kbd {
 .project-link::after { content: ""; position: absolute; inset: 0; } /* toda la tarjeta es clicable */
 .project-link:hover { color: var(--text); border-color: var(--border-strong); }
 .project:hover .project-link { transform: rotate(-8deg) scale(1.05); }
-.project h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -.015em; }
+.project h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
 .project.featured h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
 .project > p { color: var(--text-2); font-size: 15px; flex: 1; }
 .project .tags { margin-top: 4px; position: relative; }
