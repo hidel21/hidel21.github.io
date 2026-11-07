@@ -1,67 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hidel21.github.io/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/en/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/desarrollador-odoo/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/desarrollador-odoo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/odoo-developer/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/desarrollador-odoo/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/en/odoo-developer/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/desarrollador-odoo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/odoo-developer/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/desarrollador-odoo/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/facturacion-electronica-odoo/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/facturacion-electronica-odoo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/odoo-e-invoicing-latam/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/facturacion-electronica-odoo/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/en/odoo-e-invoicing-latam/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/facturacion-electronica-odoo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/odoo-e-invoicing-latam/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/facturacion-electronica-odoo/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/migracion-odoo/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/migracion-odoo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/odoo-migration/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/migracion-odoo/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/en/odoo-migration/</loc>
-    <lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://hidel21.github.io/migracion-odoo/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hidel21.github.io/en/odoo-migration/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hidel21.github.io/migracion-odoo/"/>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/blog/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
   </url>
   <url>
     <loc>https://hidel21.github.io/blog/migrar-modulos-odoo-16-a-18/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-07</lastmod>
   </url>
 </urlset>

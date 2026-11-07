@@ -23,7 +23,7 @@ Sitio estático sin dependencias ni paso de build, servido por GitHub Pages:
 - Blog en `/blog/`. Cada artículo nuevo: carpeta propia con `index.html`, entrada en `/blog/index.html`,
   `sitemap.xml` y `llms.txt`.
 - Datos estructurados (JSON-LD): `ProfilePage` + `Person` + `FAQPage` en la portada; `Service` + `BreadcrumbList` + `FAQPage` en cada servicio.
-- `sitemap.xml`, `robots.txt` (permite buscadores y asistentes de IA) y `llms.txt` (resumen para modelos de lenguaje).
+- `sitemap.xml` (formato simple: solo `loc` y `lastmod`; los idiomas van en `hreflang` dentro del HTML), `robots.txt` (permite buscadores y asistentes de IA) y `llms.txt` (resumen para modelos de lenguaje).
 - Al editar contenido, actualiza `lastmod` en `sitemap.xml` y la fecha «Actualizado el…» de la página.
 
 ## Estructura
